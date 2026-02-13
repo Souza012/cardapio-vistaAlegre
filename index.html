@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<title>Cardápio</title>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <video class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto">
+        
+        <source src="./assets/3752507-hd_1920_1080_24fps.mp4" type="video/mp4">
+        
+        </video>
+        
+        <div class="header-content">
+        
+        <img src="./assets/Design sem nome.png" class="logo">
+        
+        <h1>Pizzaria Vista Alegre</h1>
+        
+        <span>Av. Sd. Paulo Alves, 451, Pindamonhangaba - SP</span>
+        
+        <div class="status">
+        <span>Qui á Seg - 19:00 as 23:00</span>
+        </div>
+        
+        <p id="statusRestaurante" class="horario status-aberto">🟢 Aberto</p>
+        <p id="Abertura" class="horario"></p>
+        
+        </div>
+        </header>
+        
+
+<h2 class="title">Conheça nosso menu!</h2>
+
+<div class="categorias-fixa">
+<div class="categorias-container">
+<a href="#Pizzas" class="ativo">Pizzas</a>
+<a href="#Bebidas">Bebidas</a>
+<a href="#Sobremesas">Sobremesas</a>
+</div>
+</div>
+
+<main class="menu">
+
+    <section id="Pizzas" class="categoria">
+    
+    <h2>🍕 Faça seu Pedido</h2>
+    
+    <div class="pizza-builder">
+    
+    <select id="pizzaTamanho">
+    <option value="P">Broto 4 Pedaços</option>
+    <option value="G">Grande 8 pedaços</option>
+    </select>
+    
+    <select id="pizzaBorda">
+    <option value="">Sem borda</option>
+    <option value="Catupiry">Catupiry</option>
+    <option value="Cheddar">Cheddar</option>
+    </select>
+    
+    <select id="tipoPizza">
+    <option value="inteira">Inteira</option>
+    <option value="meia">Meia a Meia</option>
+    </select>
+    
+    <h3>Escolha os sabores</h3>
+    
+    <div id="listaSabores" class="lista-sabores"></div>
+    
+    <p id="pizzaPreview"></p>
+    
+    <button onclick="adicionarPizza()">
+    Adicionar Pizza 🍕
+    </button>
+    
+    </div>
+    
+    </section>
+
+    <section id="Bebidas" class="categoria" style="display:none;">
+<h2>🥤 Bebidas</h2>
+
+<div class="lista-bebidas">
+
+<!-- COCA LATA -->
+<div class="card-bebida contador" data-name="Coca-Cola Lata" data-price="6">
+<img src="./assets/bebidas/coca-lata.jpg">
+<p>Coca-Cola Lata</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+<!-- COCA 2L -->
+<div class="card-bebida contador" data-name="Coca-Cola 2L" data-price="14">
+<img src="./assets/bebidas/coca-2l.jpg">
+<p>Coca-Cola 2L</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+<!-- COCA ZERO 2L -->
+<div class="card-bebida contador" data-name="Coca-Cola Zero 2L" data-price="14">
+<img src="./assets/bebidas/coca-zero.jpg">
+<p>Coca Zero 2L</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+<!-- GUARANÁ 1L -->
+<div class="card-bebida contador" data-name="Guaraná 1L" data-price="10">
+<img src="./assets/bebidas/guarana-1l.jpg">
+<p>Guaraná 1L</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+<!-- GUARANÁ 2L -->
+<div class="card-bebida contador" data-name="Guaraná 2L" data-price="12">
+<img src="./assets/bebidas/guarana-2l.jpg">
+<p>Guaraná 2L</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+<!-- FANTA LARANJA 2L -->
+<div class="card-bebida contador" data-name="Fanta Laranja 2L" data-price="12">
+<img src="./assets/bebidas/fanta-laranja.jpg">
+<p>Fanta Laranja 2L</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+<!-- FANTA UVA 2L -->
+<div class="card-bebida contador" data-name="Fanta Uva 2L" data-price="12">
+<img src="./assets/bebidas/fanta-uva.jpg">
+<p>Fanta Uva 2L</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+<!-- SPRITE 2L -->
+<div class="card-bebida contador" data-name="Sprite 2L" data-price="12">
+<img src="./assets/bebidas/sprite.jpg">
+<p>Sprite 2L</p>
+
+<button class="diminuir">-</button>
+<span class="quantidade">0</span>
+<button class="aumentar">+</button>
+</div>
+
+</div>
+
+</section>
+
+    </main>
+    
+    
+
+<div class="checkout">
+
+<input id="nome" placeholder="Seu nome">
+
+<select id="tipoEntrega">
+<option value="retirada">Retirada</option>
+<option value="entrega">Entrega</option>
+</select>
+
+<div id="enderecoBox" style="display:none;">
+
+<select id="bairro">
+<option value="Feital">Feital</option>
+<option value="Centro">Centro</option>
+<option value="Cidade Nova">Cidade Nova</option>
+</select>
+
+<input id="endereco" placeholder="Rua / Número">
+<input id="complemento" placeholder="Complemento">
+
+<p>Taxa de entrega: R$
+<span id="taxaEntrega">0</span></p>
+
+</div>
+
+<p>Forma de Pagamento?</p>
+<select id="pagamento">
+<option>Pix</option>
+<option>Cartão</option>
+<option>Dinheiro</option>
+</select>
+
+<h3 class="titulo-pedido">Seu Pedido:</h3>
+
+<div id="carrinho"></div>
+
+<p>Total final: R$ <span id="total">0</span></p>
+
+<button id="btnEnviar"
+onclick="enviarPedido()">
+Enviar Pedido
+</button>
+
+</div>
+
+<script src="script.js" defer></script>
+
+
+</body>
+</html>
