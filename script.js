@@ -442,7 +442,7 @@ mensagem+=`\n💰 Total R$ ${
 document.getElementById("total").textContent
 }`;
 
-const numero="5519983993944";
+const numero="5512981860808";
 
 const url=
 `https://wa.me/${numero}?text=${
