@@ -52,7 +52,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 <div class="categorias-container">
 <a href="#Pizzas" class="ativo">Pizzas</a>
 <a href="#Bebidas">Bebidas</a>
-<a href="#Sobremesas">Sobremesas</a>
+<a href="#PizzasDoces">Pizzas Doces</a>
 </div>
 </div>
 
@@ -66,13 +66,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
     
     <select id="pizzaTamanho">
     <option value="P">Broto 4 Pedaços</option>
-    <option value="G">Grande 8 pedaços</option>
+    <option value="G">Grande 8 Pedaços</option>
     </select>
     
     <select id="pizzaBorda">
     <option value="">Sem borda</option>
-    <option value="Catupiry">Catupiry</option>
-    <option value="Cheddar">Cheddar</option>
+    <option value="Catupiry">Catupiry - R$8,00</option>
+    <option value="Cheddar">Cheddar - R$7,00</option>
     </select>
     
     <select id="tipoPizza">
@@ -100,83 +100,107 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 <div class="lista-bebidas">
 
 <!-- COCA LATA -->
-<div class="card-bebida contador" data-name="Coca-Cola Lata" data-price="6">
-<img src="./assets/bebidas/coca-lata.jpg">
-<p>Coca-Cola Lata</p>
+<div class="card-bebida contador" data-name="Coca-Cola Lata" data-price="5">
+<img src="./assets/bebidas/coca-lata.webp">
+<p>Coca-Cola Lata <br><strong>R$ 5,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 <!-- COCA 2L -->
-<div class="card-bebida contador" data-name="Coca-Cola 2L" data-price="14">
-<img src="./assets/bebidas/coca-2l.jpg">
-<p>Coca-Cola 2L</p>
+<div class="card-bebida contador" data-name="Coca-Cola 2L" data-price="12">
+<img src="./assets/bebidas/coca2L.webp">
+<p>Coca-Cola 2L <br><strong>R$ 12,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 <!-- COCA ZERO 2L -->
-<div class="card-bebida contador" data-name="Coca-Cola Zero 2L" data-price="14">
-<img src="./assets/bebidas/coca-zero.jpg">
-<p>Coca Zero 2L</p>
+<div class="card-bebida contador" data-name="Coca-Cola Zero 2L" data-price="15">
+<img src="./assets/bebidas/coca-zero.jpeg">
+<p>Coca Zero 2L <br><strong>R$ 15,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 <!-- GUARANÁ 1L -->
-<div class="card-bebida contador" data-name="Guaraná 1L" data-price="10">
+<div class="card-bebida contador" data-name="Guaraná 1L" data-price="8">
 <img src="./assets/bebidas/guarana-1l.jpg">
-<p>Guaraná 1L</p>
+<p>Guaraná 1L <br><strong>R$ 8,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 <!-- GUARANÁ 2L -->
-<div class="card-bebida contador" data-name="Guaraná 2L" data-price="12">
-<img src="./assets/bebidas/guarana-2l.jpg">
-<p>Guaraná 2L</p>
+<div class="card-bebida contador" data-name="Guaraná 2L" data-price="10">
+<img src="./assets/bebidas/guarana-2l.webp">
+<p>Guaraná 2L <br><strong>R$ 10,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 <!-- FANTA LARANJA 2L -->
-<div class="card-bebida contador" data-name="Fanta Laranja 2L" data-price="12">
-<img src="./assets/bebidas/fanta-laranja.jpg">
-<p>Fanta Laranja 2L</p>
+<div class="card-bebida contador" data-name="Fanta Laranja 2L" data-price="11">
+<img src="./assets/bebidas/fanta-2L.jpg">
+<p>Fanta Laranja 2L <br><strong>R$ 11,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 <!-- FANTA UVA 2L -->
-<div class="card-bebida contador" data-name="Fanta Uva 2L" data-price="12">
-<img src="./assets/bebidas/fanta-uva.jpg">
-<p>Fanta Uva 2L</p>
+<div class="card-bebida contador" data-name="Fanta Uva 2L" data-price="11">
+<img src="./assets/bebidas/uva.webp">
+<p>Fanta Uva 2L <br><strong>R$ 11,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 <!-- SPRITE 2L -->
-<div class="card-bebida contador" data-name="Sprite 2L" data-price="12">
-<img src="./assets/bebidas/sprite.jpg">
-<p>Sprite 2L</p>
+<div class="card-bebida contador" data-name="Sprite 2L" data-price="9">
+<img src="./assets/bebidas/spreite.webp">
+<p>Sprite 2L <br><strong>R$ 9,00</strong></p>
 
-<button class="diminuir">-</button>
-<span class="quantidade">0</span>
-<button class="aumentar">+</button>
+<div class="controle">
+    <button class="diminuir">-</button>
+    <span class="quantidade">0</span>
+    <button class="aumentar">+</button>
+</div>
+    
 </div>
 
 </div>

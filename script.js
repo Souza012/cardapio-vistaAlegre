@@ -1,51 +1,114 @@
 // ===== HORARIO RESTAURANTE =====
-const horaAbertura = 1;
+const horaAbertura = 20;
 const horaFechamento = 23;
 
 const sabores = [
-{
-nome:"Calabresa",
-preco:30,
-img:"./assets/pizzas/logo-vista-alegre.png"
-},
-{
-nome:"Frango",
-preco:35,
-img:"./assets/pizzas/logo-vista-alegre.png"
-},
-{
-nome:"Portuguesa",
-preco:40,
-img:"./assets/pizzas/logo-vista-alegre.png"
-},
-{
-nome:"4 Queijos",
-preco:38,
-img:"./assets/pizzas/logo-vista-alegre.png"
-}
+    {
+        nome: "4 Queijos",
+        categoria: "salgada",
+        precoGrande: 58,
+        precoBroto: 38,
+        img: "assets/pizzas/4queijos.png"
+    },
+    {
+        nome: "Brocolis c/ Bacon",
+        categoria: "salgada",
+        precoGrande: 56,
+        precoBroto: 36,
+        img: "assets/pizzas/brocolis-bacon.png"
+    },
+    {
+        nome: "Carne seca c/ Catupiry",
+        categoria: "salgada",
+        precoGrande: 67,
+        precoBroto: 48,
+        img: "assets/pizzas/carne-seca-catupiry.jpeg"
+    },
+    {
+        nome: "Lombo Com Catupiry",
+        categoria: "salgada",
+        precoGrande: 58,
+        precoBroto: 39,
+        img: "assets/pizzas/lombo-catupiry.jpeg"
+    },
+    {
+        nome: "Portuguesa",
+        categoria: "salgada",
+        precoGrande: 55,
+        precoBroto: 37,
+        img: "assets/pizzas/portuguesa.jpeg"
+    },
+    {
+        nome: "Creme de Avelã",
+        categoria: "doce",
+        precoGrande: 39,
+        precoBroto: 27,
+        img: "assets/pizzas/"
+    }
 ];
+
+
+
+const precosBorda = {
+    "Catupiry": 8,
+    "Cheddar": 7,
+};
+
+function renderSabores(categoria) {
+
+    const container =
+        document.getElementById("listaSabores");
+
+    container.innerHTML = "";
+
+    sabores
+        .filter(s => s.categoria === categoria)
+        .forEach(sabor => {
+
+            container.innerHTML += `
+    <div class="card-pizza">
+    <img src="${sabor.img}">
+    <h3>${sabor.nome}</h3>
+    <p>
+    Broto: R$ ${sabor.precoBroto.toFixed(2)}<br>
+    Grande: R$ ${sabor.precoGrande.toFixed(2)}
+    </p>
+    <button onclick="selecionarSabor('${sabor.nome}')">
+    Selecionar
+    </button>
+    </div>
+    `;
+
+        });
+
+}
+
 
 
 // ===== GERAR CARDS VISUAIS =====
 const listaSabores = document.getElementById("listaSabores");
 
-if(listaSabores){
+if (listaSabores) {
 
-sabores.forEach((pizza,index)=>{
+    sabores.forEach((pizza, index) => {
 
-listaSabores.innerHTML += `
-<div class="card-sabor" onclick="selecionarSabor('${pizza.nome}')">
+        listaSabores.innerHTML += `
+    <div class="card-sabor" onclick="selecionarSabor('${pizza.nome}')">
+    
+    <img src="${pizza.img}" class="img-pizza">
+    
+    <h4>${pizza.nome}</h4>
+    
+    <span>
+    Broto: R$ ${pizza.precoBroto.toFixed(2)} <br>
+    Grande: R$ ${pizza.precoGrande.toFixed(2)}
+    </span>
+    
+    </div>
+    `;
 
-<img src="${pizza.img}" class="img-pizza">
 
-<h4>${pizza.nome}</h4>
-
-<span>R$ ${pizza.preco.toFixed(2)}</span>
-
-</div>
-`;
-
-});
+    });
 
 }
 
@@ -57,252 +120,288 @@ const btnEnviar = document.getElementById("btnEnviar");
 
 let restauranteAberto = true;
 
-function verificarHorario(){
+function verificarHorario() {
 
-const agora = new Date();
-const hora = agora.getHours();
+    const agora = new Date();
+    const hora = agora.getHours();
 
-restauranteAberto = hora >= horaAbertura && hora < horaFechamento;
+    restauranteAberto = hora >= horaAbertura && hora < horaFechamento;
 
-if(statusRestaurante){
-statusRestaurante.innerHTML =
-restauranteAberto
-? `<span class="aberto">🟢 Aberto</span>`
-: `<span class="fechado">🔴 Fechado</span>`;
+    if (statusRestaurante) {
+        statusRestaurante.innerHTML =
+            restauranteAberto
+                ? `<span class="aberto">🟢 Aberto</span>`
+                : `<span class="fechado">🔴 Fechado</span>`;
+    }
+
+    if (btnEnviar) {
+        btnEnviar.style.display =
+            restauranteAberto ? "block" : "none";
+    }
+
+    if (!restauranteAberto && Abertura) {
+
+        let proximaHora = new Date();
+
+        if (hora >= horaFechamento) {
+            proximaHora.setDate(proximaHora.getDate() + 1);
+        }
+
+        proximaHora.setHours(horaAbertura, 0, 0);
+
+        const diff = proximaHora - agora;
+
+        const h = Math.floor(diff / 1000 / 60 / 60);
+        const m = Math.floor((diff / 1000 / 60) % 60);
+
+        Abertura.textContent = `Abre em ${h}h ${m}m`;
+
+    } else if (Abertura) {
+        Abertura.textContent = "";
+    }
+
 }
 
-if(btnEnviar){
-btnEnviar.style.display =
-restauranteAberto ? "block" : "none";
-}
-
-if(!restauranteAberto && Abertura){
-
-let proximaHora = new Date();
-
-if(hora >= horaFechamento){
-proximaHora.setDate(proximaHora.getDate()+1);
-}
-
-proximaHora.setHours(horaAbertura,0,0);
-
-const diff = proximaHora - agora;
-
-const h = Math.floor(diff/1000/60/60);
-const m = Math.floor((diff/1000/60)%60);
-
-Abertura.textContent = `Abre em ${h}h ${m}m`;
-
-}else if(Abertura){
-Abertura.textContent="";
-}
-
-}
-
-setInterval(verificarHorario,1000);
+setInterval(verificarHorario, 1000);
 verificarHorario();
 
+function atualizarPrecoPreview() {
+
+    if (saboresSelecionados.length === 0) return;
+
+    let preco = calcularPrecoPizza();
+
+    const previewPreco =
+        document.getElementById("pizzaPrecoPreview");
+
+    if (previewPreco) {
+        previewPreco.textContent =
+            "R$ " + preco.toFixed(2);
+    }
+
+}
 
 // ===== BUILDER PIZZA =====
 let saboresSelecionados = [];
 
-function selecionarSabor(nome){
+function selecionarSabor(nome) {
 
-const tipo = document.getElementById("tipoPizza").value;
+    const tipo = document.getElementById("tipoPizza").value;
 
-if(tipo==="inteira"){
+    if (tipo === "inteira") {
 
-saboresSelecionados=[nome];
+        saboresSelecionados = [nome];
 
-}else{
+    } else {
 
-if(saboresSelecionados.includes(nome)){
+        if (saboresSelecionados.includes(nome)) {
 
-saboresSelecionados =
-saboresSelecionados.filter(s=>s!==nome);
+            saboresSelecionados =
+                saboresSelecionados.filter(s => s !== nome);
 
-}else{
+        } else {
 
-if(saboresSelecionados.length>=2){
-alert("Só pode escolher 2 sabores");
-return;
-}
+            if (saboresSelecionados.length >= 2) {
+                alert("Só pode escolher 2 sabores");
+                return;
+            }
 
-saboresSelecionados.push(nome);
-}
+            saboresSelecionados.push(nome);
+        }
 
-}
+    }
 
-atualizarBuilder();
-
-}
-
-
-function calcularPrecoPizza(){
-
-const tamanho =
-document.getElementById("pizzaTamanho").value;
-
-let base = tamanho==="P" ? 35 : 60;
-
-if(saboresSelecionados.length===0)
-return 0;
-
-let precos =
-saboresSelecionados.map(s=>
-sabores.find(x=>x.nome===s).preco
-);
-
-let maiorPreco = Math.max(...precos);
-
-return base + maiorPreco;
+    atualizarBuilder();
+    atualizarPrecoPreview();
 
 }
 
 
-function atualizarBuilder(){
+function calcularPrecoPizza() {
 
-const tipo =
-document.getElementById("tipoPizza").value;
+    if (saboresSelecionados.length === 0)
+        return 0;
 
-const btn =
-document.querySelector(".pizza-builder button");
+    const tamanho =
+        document.getElementById("pizzaTamanho").value;
 
-btn.disabled =
-tipo==="inteira"
-? saboresSelecionados.length!==1
-: saboresSelecionados.length!==2;
+    let precos =
+        saboresSelecionados.map(s => {
 
-const preview =
-document.getElementById("pizzaPreview");
+            let sabor = sabores.find(x => x.nome === s);
 
-if(preview){
+            return tamanho === "P"
+                ? sabor.precoBroto
+                : sabor.precoGrande;
 
-preview.textContent =
-saboresSelecionados.length
-? "Selecionado: "+
-saboresSelecionados.join(" / ")
-: "Nenhum sabor selecionado";
+        });
 
-}
+    let maiorPreco = Math.max(...precos, 0);
 
-// ATIVA CARD VISUAL
-document.querySelectorAll(".card-sabor")
-.forEach(card=>{
-
-const nome =
-card.querySelector("h4").textContent;
-
-if(saboresSelecionados.includes(nome)){
-card.classList.add("ativo");
-}else{
-card.classList.remove("ativo");
-}
-
-});
+    return maiorPreco;
 
 }
 
+function atualizarBuilder() {
 
-function adicionarPizza(){
+    const tipo =
+        document.getElementById("tipoPizza").value;
 
-if(!restauranteAberto){
-alert("Restaurante fechado");
-return;
+    const btn =
+        document.querySelector(".pizza-builder button");
+
+    btn.disabled =
+        tipo === "inteira"
+            ? saboresSelecionados.length !== 1
+            : saboresSelecionados.length !== 2;
+
+    const preview =
+        document.getElementById("pizzaPreview");
+
+    if (preview) {
+
+        preview.textContent =
+            saboresSelecionados.length
+                ? "Selecionado: " +
+                saboresSelecionados.join(" / ")
+                : "Nenhum sabor selecionado";
+
+    }
+
+    // ATIVA CARD VISUAL
+    document.querySelectorAll(".card-sabor")
+        .forEach(card => {
+
+            const nome =
+                card.querySelector("h4").textContent;
+
+            if (saboresSelecionados.includes(nome)) {
+                card.classList.add("ativo");
+            } else {
+                card.classList.remove("ativo");
+            }
+
+        });
+
 }
 
-const tamanho =
-document.getElementById("pizzaTamanho").value;
 
-const borda =
-document.getElementById("pizzaBorda").value;
+function adicionarPizza() {
 
-const tipo =
-document.getElementById("tipoPizza").value;
+    if (!restauranteAberto) {
+        alert("Restaurante fechado");
+        return;
+    }
 
-if(tipo==="inteira" &&
-saboresSelecionados.length!==1){
-alert("Escolha 1 sabor");
-return;
-}
+    const tamanho =
+        document.getElementById("pizzaTamanho").value;
 
-if(tipo==="meia" &&
-saboresSelecionados.length!==2){
-alert("Escolha 2 sabores");
-return;
-}
+    const borda =
+        document.getElementById("pizzaBorda").value;
 
-let nomePizza =
-`Pizza ${tamanho==="P"?"Broto":"Grande"} - `+
-saboresSelecionados.join(" / ");
+    const tipo =
+        document.getElementById("tipoPizza").value;
 
-if(borda)
-nomePizza+=` + Borda ${borda}`;
+    if (tipo === "inteira" &&
+        saboresSelecionados.length !== 1) {
+        alert("Escolha 1 sabor");
+        return;
+    }
 
-let preco = calcularPrecoPizza();
+    if (tipo === "meia" &&
+        saboresSelecionados.length !== 2) {
+        alert("Escolha 2 sabores");
+        return;
+    }
 
-carrinho.push({
-nome:nomePizza,
-preco:preco,
-obs:""
-});
+    let tamanhoTexto =
+        tamanho === "P"
+            ? "🍕 BROTO (4 pedaços)"
+            : "🍕 GRANDE (8 pedaços)";
 
-saboresSelecionados=[];
+    let nomePizza =
+        `${tamanhoTexto} - ` +
+        saboresSelecionados.join(" / ");
 
-salvar();
-renderCarrinho();
-atualizarTotal();
-atualizarBuilder();
+
+    if (borda)
+        nomePizza += ` + Borda ${borda}`;
+
+    let precoPizza = calcularPrecoPizza();
+
+    // pega valor da borda
+    let valorBorda = precosBorda[borda] || 0;
+
+    carrinho.push({
+        nome: nomePizza,
+        preco: precoPizza,
+        borda: borda || "",
+        valorBorda: valorBorda,
+        obs: ""
+    });
+
+    saboresSelecionados = [];
+
+    salvar();
+    renderCarrinho();
+    atualizarTotal();
+    atualizarBuilder();
 
 }
 
 
 // ===== DADOS INICIAIS =====
 let carrinho =
-JSON.parse(localStorage.getItem("carrinho"))||[];
+    JSON.parse(localStorage.getItem("carrinho")) || [];
 
-const taxasEntrega={
-"Feital":2,
-"Centro":12,
-"Cidade Nova":3
+const taxasEntrega = {
+    "Feital": 2,
+    "Centro": 12,
+    "Cidade Nova": 3
 };
 
 const tipoEntrega =
-document.getElementById("tipoEntrega");
+    document.getElementById("tipoEntrega");
 
 const bairro =
-document.getElementById("bairro");
+    document.getElementById("bairro");
 
 const enderecoBox =
-document.getElementById("enderecoBox");
+    document.getElementById("enderecoBox");
 
 
 // ===== STORAGE =====
-function salvar(){
-localStorage.setItem("carrinho",
-JSON.stringify(carrinho));
+function salvar() {
+    localStorage.setItem("carrinho",
+        JSON.stringify(carrinho));
 }
 
 
 // ===== CARRINHO =====
-function renderCarrinho(){
+function renderCarrinho() {
 
-const box =
-document.getElementById("carrinho");
+    const box =
+        document.getElementById("carrinho");
 
-if(!box) return;
+    if (!box) return;
 
-box.innerHTML="";
+    box.innerHTML = "";
 
-carrinho.forEach((item,index)=>{
+    carrinho.forEach((item, index) => {
 
-box.innerHTML+=`
+        box.innerHTML += `
 <div class="item-carrinho">
-<p>${item.nome} - R$ ${item.preco}</p>
+<p>
+<strong>${item.nome}</strong><br>
+R$ ${item.preco.toFixed(2)}
+${item.borda ? `<br>🧀 Borda ${item.borda} + R$ ${item.valorBorda.toFixed(2)}` : ""}
+</p>
+
+
 
 <input
 placeholder="Observação"
-value="${item.obs||""}"
+value="${item.obs || ""}"
 onchange="salvarObs(${index},this.value)"
 >
 
@@ -313,177 +412,207 @@ remover
 </div>
 `;
 
-});
+    });
 
 }
 
 
-function salvarObs(index,valor){
-carrinho[index].obs=valor;
-salvar();
+function salvarObs(index, valor) {
+    carrinho[index].obs = valor;
+    salvar();
 }
 
 
-function removerCarrinho(index){
+function removerCarrinho(index) {
 
-carrinho.splice(index,1);
+    carrinho.splice(index, 1);
 
-salvar();
-renderCarrinho();
-atualizarTotal();
+    salvar();
+    renderCarrinho();
+    atualizarTotal();
 
 }
 
 
 // ===== TOTAL =====
-function atualizarTotal(){
+function atualizarTotal() {
 
-let total=0;
+    let total = 0;
 
-carrinho.forEach(item=>{
-total+=item.preco;
-});
+    carrinho.forEach(item => {
+        total += item.preco;
+        total += item.valorBorda || 0;
+    });
 
-let taxa=0;
+    let taxa = 0;
 
-if(tipoEntrega &&
-tipoEntrega.value==="entrega"){
+    if (tipoEntrega &&
+        tipoEntrega.value === "entrega") {
 
-taxa=taxasEntrega[bairro?.value]||0;
+        taxa = taxasEntrega[bairro?.value] || 0;
 
-if(enderecoBox)
-enderecoBox.style.display="block";
+        if (enderecoBox)
+            enderecoBox.style.display = "block";
 
-}else{
+    } else {
 
-if(enderecoBox)
-enderecoBox.style.display="none";
+        if (enderecoBox)
+            enderecoBox.style.display = "none";
+
+    }
+
+    const taxaSpan =
+        document.getElementById("taxaEntrega");
+
+    if (taxaSpan)
+        taxaSpan.textContent =
+            taxa.toFixed(2);
+
+    total += taxa;
+
+    const totalSpan =
+        document.getElementById("total");
+
+    if (totalSpan)
+        totalSpan.textContent =
+            total.toFixed(2);
 
 }
 
-const taxaSpan=
-document.getElementById("taxaEntrega");
+if (tipoEntrega)
+    tipoEntrega.addEventListener("change",
+        atualizarTotal);
 
-if(taxaSpan)
-taxaSpan.textContent=
-taxa.toFixed(2);
+if (bairro)
+    bairro.addEventListener("change",
+        atualizarTotal);
 
-total+=taxa;
+const selectTamanho =
+    document.getElementById("pizzaTamanho");
 
-const totalSpan=
-document.getElementById("total");
-
-if(totalSpan)
-totalSpan.textContent=
-total.toFixed(2);
-
+if (selectTamanho) {
+    selectTamanho.addEventListener(
+        "change",
+        atualizarPrecoPreview
+    );
 }
 
-if(tipoEntrega)
-tipoEntrega.addEventListener("change",
-atualizarTotal);
-
-if(bairro)
-bairro.addEventListener("change",
-atualizarTotal);
 
 
 // ===== WHATSAPP =====
-function enviarPedido(){
+function enviarPedido() {
 
-if(!restauranteAberto){
-alert("Restaurante fechado");
-return;
-}
+    if (!restauranteAberto) {
+        alert("Restaurante fechado");
+        return;
+    }
 
-if(carrinho.length===0){
-alert("Carrinho vazio");
-return;
-}
+    if (carrinho.length === 0) {
+        alert("Carrinho vazio");
+        return;
+    }
 
-const nomeCliente =
-document.getElementById("nome").value
-||"Cliente";
+    const nomeCliente =
+        document.getElementById("nome").value
+        || "Cliente";
 
-const pagamento =
-document.getElementById("pagamento").value;
+    const pagamento =
+        document.getElementById("pagamento").value;
 
-const tipo =
-tipoEntrega.value;
+    const tipo =
+        tipoEntrega.value;
 
-let mensagem =
-`🍕 *NOVO PEDIDO*\n\n`;
+    let mensagem =
+        `🍕 *NOVO PEDIDO*\n\n`;
 
-mensagem+=`👤 ${nomeCliente}\n`;
-mensagem+=`🚚 ${tipo}\n`;
+    mensagem += `👤 ${nomeCliente}\n`;
+    mensagem += `🚚 ${tipo}\n`;
 
-if(tipo==="entrega"){
+    if (tipo === "entrega") {
 
-mensagem+=`📍 ${bairro.value}\n`;
+        mensagem += `📍 ${bairro.value}\n`;
 
-mensagem+=`🏠 ${
-document.getElementById("endereco").value
-}\n`;
+        mensagem += `🏠 ${document.getElementById("endereco").value
+            }\n`;
 
-mensagem+=`🧾 ${
-document.getElementById("complemento").value
-}\n`;
+        mensagem += `🧾 ${document.getElementById("complemento").value
+            }\n`;
 
-}
+    }
 
-mensagem+=`\n🧾 *Itens*\n`;
+    mensagem += `\n🧾 *Itens*\n`;
 
-carrinho.forEach(item=>{
-mensagem+=`• ${item.nome}\n`;
-});
+    carrinho.forEach(item => {
 
-mensagem+=`\n💳 ${pagamento}`;
-mensagem+=`\n💰 Total R$ ${
-document.getElementById("total").textContent
-}`;
+        mensagem += `• ${item.nome}\n`;
 
-const numero="5512981860808";
+        if (item.obs && item.obs.trim() !== "") {
+            mensagem += `   📝 Obs: ${item.obs}\n`;
+        }
 
-const url=
-`https://wa.me/${numero}?text=${
-encodeURIComponent(mensagem)
-}`;
+    });
 
-window.open(url,"_blank");
+    mensagem += `\n💳 ${pagamento}`;
+    mensagem += `\n💰 Total R$ ${document.getElementById("total").textContent
+        }`;
+
+    const numero = "5512981860808";
+
+    const url =
+        `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)
+        }`;
+
+    window.open(url, "_blank");
 
 }
 
 document
-.querySelectorAll(".categorias-fixa a")
-.forEach(link=>{
+    .querySelectorAll(".categorias-fixa a")
+    .forEach(link => {
 
-link.addEventListener("click",(e)=>{
+        link.addEventListener("click", (e) => {
 
-e.preventDefault();
+            e.preventDefault();
 
-const id = link
-.getAttribute("href")
-.replace("#","");
+            const id = link
+                .getAttribute("href")
+                .replace("#", "");
 
-document
-.querySelectorAll(".categoria")
-.forEach(sec=>{
-sec.style.display="none";
-});
+            document
+                .querySelectorAll(".categoria")
+                .forEach(sec => {
+                    sec.style.display = "none";
+                });
 
-document
-.getElementById(id)
-.style.display="block";
+            document
+                .getElementById(id)
+                .style.display = "block";
 
-document
-.querySelectorAll(".categorias-fixa a")
-.forEach(l=>l.classList.remove("ativo"));
+            if (id === "PizzasDoces") {
+                renderSabores("doce");
+            }
 
-link.classList.add("ativo");
+            if (id === "PizzasSalgadas") {
+                renderSabores("salgada");
+            }
+            if (id === "PizzasDoces") {
+                renderSabores("doce");
+            }
 
-});
+            if (id === "PizzasSalgadas") {
+                renderSabores("salgada");
+            }
 
-});
+
+            document
+                .querySelectorAll(".categorias-fixa a")
+                .forEach(l => l.classList.remove("ativo"));
+
+            link.classList.add("ativo");
+
+        });
+
+    });
 
 // ===============================
 // BEBIDAS -> CARRINHO AUTOMÁTICO
@@ -494,52 +623,52 @@ document.querySelectorAll(".contador").forEach(card => {
     const btnMais = card.querySelector(".aumentar");
     const btnMenos = card.querySelector(".diminuir");
     const spanQtd = card.querySelector(".quantidade");
-    
+
     const nome = card.dataset.name;
     const preco = Number(card.dataset.price);
-    
+
     let qtd = 0;
-    
+
     btnMais.addEventListener("click", () => {
-    
-    qtd++;
-    spanQtd.textContent = qtd;
-    
-    carrinho.push({
-    nome: nome,
-    preco: preco,
-    obs: ""
+
+        qtd++;
+        spanQtd.textContent = qtd;
+
+        carrinho.push({
+            nome: nome,
+            preco: preco,
+            obs: ""
+        });
+
+        salvar();
+        renderCarrinho();
+        atualizarTotal();
+
     });
-    
-    salvar();
-    renderCarrinho();
-    atualizarTotal();
-    
-    });
-    
+
     btnMenos.addEventListener("click", () => {
-    
-    if(qtd <= 0) return;
-    
-    qtd--;
-    spanQtd.textContent = qtd;
-    
-    // remove UMA bebida do carrinho
-    const index = carrinho.findIndex(item => item.nome === nome);
-    
-    if(index !== -1){
-    carrinho.splice(index,1);
-    }
-    
-    salvar();
-    renderCarrinho();
-    atualizarTotal();
-    
+
+        if (qtd <= 0) return;
+
+        qtd--;
+        spanQtd.textContent = qtd;
+
+        // remove UMA bebida do carrinho
+        const index = carrinho.findIndex(item => item.nome === nome);
+
+        if (index !== -1) {
+            carrinho.splice(index, 1);
+        }
+
+        salvar();
+        renderCarrinho();
+        atualizarTotal();
+
     });
-    
-    });
-    
-    
+
+});
+
+
 
 
 // ===== INIT =====
