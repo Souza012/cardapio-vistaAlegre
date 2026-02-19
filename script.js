@@ -1,5 +1,5 @@
 // ===== HORARIO RESTAURANTE =====
-const horaAbertura = 20;
+const horaAbertura = 1;
 const horaFechamento = 23;
 
 const sabores = [
