@@ -5,252 +5,317 @@ const horaFechamento = 23;
 const sabores = [
 
     {
-    nome: "Mussarela",
-    categoria: "salgada",
-    precoGrande: 45,
-    precoBroto: 27,
-    img: "assets/pizzas/mussarela-pizza.png"
+        nome: "Mussarela",
+        descricao: "Molho de tomate, mussarela, tomate e orégano.",
+        categoria: "salgada",
+        precoGrande: 45,
+        precoBroto: 27,
+        img: "assets/pizzas/mussarela-pizza.png"
     },
-    
+
     {
-    nome: "Marguerita",
-    categoria: "salgada",
-    precoGrande: 45,
-    precoBroto: 27,
-    img: "assets/pizzas/marguerida-pizza.png"
+        nome: "Marguerita",
+        descricao: "Molho de tomate, mussarela, manjericão fresco, tomate e orégano.",
+        categoria: "salgada",
+        precoGrande: 45,
+        precoBroto: 27,
+        img: "assets/pizzas/marguerida-pizza.png"
     },
-    
+
     {
-    nome: "Bauru",
-    categoria: "salgada",
-    precoGrande: 45,
-    precoBroto: 27,
-    img: "assets/pizzas/bauru-pizza.png"
+        nome: "Bauru",
+        descricao: "Molho de tomate, mussarela, presunto ralado, tomate e orégano.",
+        categoria: "salgada",
+        precoGrande: 45,
+        precoBroto: 27,
+        img: "assets/pizzas/bauru-pizza.png"
     },
-    
+
     {
-    nome: "Calabresa",
-    categoria: "salgada",
-    precoGrande: 45,
-    precoBroto: 27,
-    img: "assets/pizzas/calabresa-pizza.png"
+        nome: "Calabresa",
+        descricao: "Molho de tomate, mussarela, calabresa, cebola e orégano.",
+        categoria: "salgada",
+        precoGrande: 45,
+        precoBroto: 27,
+        img: "assets/pizzas/calabresa-pizza.png"
     },
-    
+
     {
-    nome: "Bacon",
-    categoria: "salgada",
-    precoGrande: 56,
-    precoBroto: 34,
-    img: "assets/pizzas/fran-bacon.png"
+        nome: "Bacon",
+        descricao: "Molho de tomate, mussarela, bacon e orégano.",
+        categoria: "salgada",
+        precoGrande: 56,
+        precoBroto: 34,
+        img: "assets/pizzas/fran-bacon.png"
     },
-    
+
     {
-    nome: "Portuguesa",
-    categoria: "salgada",
-    precoGrande: 55,
-    precoBroto: 33,
-    img: "assets/pizzas/portuguesa.jpeg"
+        nome: "Portuguesa",
+        descricao: "Molho de tomate, mussarela, presunto, ovo cozido, palmito, ervilha, cebola e orégano.",
+        categoria: "salgada",
+        precoGrande: 55,
+        precoBroto: 33,
+        img: "assets/pizzas/portuguesa.jpeg"
     },
-    
+
     {
-    nome: "Frango c/ Catupiry",
-    categoria: "salgada",
-    precoGrande: 57,
-    precoBroto: 35,
-    img: "assets/pizzas/frango-catupiry-pizza.png"
+        nome: "Frango c/ Catupiry",
+        descricao: "Molho de tomate, frango desfiado, mussarela, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 57,
+        precoBroto: 35,
+        img: "assets/pizzas/frango-catupiry-pizza.png"
     },
-    
+
     {
-    nome: "2 Queijos",
-    categoria: "salgada",
-    precoGrande: 52,
-    precoBroto: 32,
-    img: "assets/pizzas/4queijos.png"
+        nome: "2 Queijos",
+        descricao: "Molho de tomate, mussarela, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 52,
+        precoBroto: 32,
+        img: "assets/pizzas/4queijos.png"
     },
-    
+
     {
-    nome: "Palmito",
-    categoria: "salgada",
-    precoGrande: 50,
-    precoBroto: 30,
-    img: "assets/pizzas/portuguesa.jpeg"
+        nome: "Palmito",
+        descricao: "Molho de tomate, mussarela, palmito e orégano.",
+        categoria: "salgada",
+        precoGrande: 50,
+        precoBroto: 30,
+        img: "assets/pizzas/portuguesa.jpeg"
     },
-    
+
     {
-    nome: "Brocolis com Bacon",
-    categoria: "salgada",
-    precoGrande: 56,
-    precoBroto: 34,
-    img: "assets/pizzas/brocolis-bacon.png"
+        nome: "Brocolis com Bacon",
+        descricao: "Molho de tomate, mussarela, brócolis, bacon e orégano.",
+        categoria: "salgada",
+        precoGrande: 56,
+        precoBroto: 34,
+        img: "assets/pizzas/brocolis-bacon.png"
     },
-    
+
     {
-    nome: "Fran Bacon",
-    categoria: "salgada",
-    precoGrande: 56,
-    precoBroto: 34,
-    img: "assets/pizzas/fran-bacon.png"
+        nome: "Fran Bacon",
+        descricao: "Molho de tomate, frango desfiado, mussarela, bacon e orégano.",
+        categoria: "salgada",
+        precoGrande: 56,
+        precoBroto: 34,
+        img: "assets/pizzas/fran-bacon.png"
     },
-    
+
     {
-    nome: "Carijó",
-    categoria: "salgada",
-    precoGrande: 54,
-    precoBroto: 33,
-    img: "assets/pizzas/frango-catupiry-pizza.png"
+        nome: "Carijó",
+        descricao: "Molho de tomate, mussarela, frango desfiado, milho e orégano.",
+        categoria: "salgada",
+        precoGrande: 54,
+        precoBroto: 33,
+        img: "assets/pizzas/frango-catupiry-pizza.png"
     },
-    
+
     {
-    nome: "Frango Especial",
-    categoria: "salgada",
-    precoGrande: 62,
-    precoBroto: 37,
-    img: "assets/pizzas/frango-catupiry-pizza.png"
+        nome: "Frango Especial",
+        descricao: "Molho de tomate, frango desfiado, mussarela, calabresa ralada, palmito, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 62,
+        precoBroto: 37,
+        img: "assets/pizzas/frango-catupiry-pizza.png"
     },
-    
+
     {
-    nome: "Baiacatu",
-    categoria: "salgada",
-    precoGrande: 50,
-    precoBroto: 30,
-    img: "assets/pizzas/baiiacatu-pizza.png"
+        nome: "Baiacatu",
+        descricao: "Molho de tomate, calabresa ralada, pimenta biquinho, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 50,
+        precoBroto: 30,
+        img: "assets/pizzas/baiiacatu-pizza.png"
     },
-    
+
     {
-    nome: "4 Queijos",
-    categoria: "salgada",
-    precoGrande: 58,
-    precoBroto: 35,
-    img: "assets/pizzas/4queijos.png"
+        nome: "4 Queijos",
+        descricao: "Molho de tomate, mussarela, provolone, parmesão, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 58,
+        precoBroto: 35,
+        img: "assets/pizzas/4queijos.png"
     },
-    
+
     {
-    nome: "Lombo com Catupiry",
-    categoria: "salgada",
-    precoGrande: 58,
-    precoBroto: 35,
-    img: "assets/pizzas/lombo-catupiry.jpeg"
+        nome: "Lombo com Catupiry",
+        descricao: "Molho de tomate, mussarela, lombo canadense, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 58,
+        precoBroto: 35,
+        img: "assets/pizzas/lombo-catupiry.jpeg"
     },
-    
+
     {
-    nome: "Peperoni",
-    categoria: "salgada",
-    precoGrande: 60,
-    precoBroto: 36,
-    img: "assets/pizzas/peperoni-pizza.jpeg"
+        nome: "Peperoni",
+        descricao: "Molho de tomate, mussarela, peperoni e orégano.",
+        categoria: "salgada",
+        precoGrande: 60,
+        precoBroto: 36,
+        img: "assets/pizzas/peperoni-pizza.jpeg"
     },
-    
+
     {
-    nome: "Pizza da Casa",
-    categoria: "salgada",
-    precoGrande: 65,
-    precoBroto: 39,
-    img: "assets/pizzas/fran-bacon.png"
+        nome: "Pizza da Casa",
+        descricao: "Molho de tomate, frango desfiado, mussarela, bacon, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 65,
+        precoBroto: 39,
+        img: "assets/pizzas/fran-bacon.png"
     },
-    
+
     {
-    nome: "Carne Seca Acebolada",
-    categoria: "salgada",
-    precoGrande: 65,
-    precoBroto: 39,
-    img: "assets/pizzas/carne-seca-aceboolada.png"
+        nome: "Carne Seca Acebolada",
+        descricao: "Molho de tomate, mussarela, carne seca, cebola e orégano.",
+        categoria: "salgada",
+        precoGrande: 65,
+        precoBroto: 39,
+        img: "assets/pizzas/carne-seca-aceboolada.png"
     },
-    
+
     {
-    nome: "Carne Seca c/ Catupiry",
-    categoria: "salgada",
-    precoGrande: 67,
-    precoBroto: 40,
-    img: "assets/pizzas/carne-seca-catupiry.jpeg"
+        nome: "Carne Seca c/ Catupiry",
+        descricao: "Molho de tomate, mussarela, carne seca, catupiry e orégano.",
+        categoria: "salgada",
+        precoGrande: 67,
+        precoBroto: 40,
+        img: "assets/pizzas/carne-seca-catupiry.jpeg"
     }
-    
-    ];
+
+];
 
 
-    const pizzasDoces = [
-        {
+const pizzasDoces = [
+    {
         nome: "Creme de Avelã",
+        descricao: "Creme de leite, creme de avelã, chocolate branco e granulado.",
         precoGrande: 48,
         precoBroto: 29,
         img: "assets/pizzas/cremeAvela.jpeg"
-        },
-        {
-        nome: "Creme de Avelã",
+    },
+    {
+        nome: "Chocolate ao Leite c/ Chocolate Branco",
+        descricao: "Creme de leite, creme de avelã e confete.",
         precoGrande: 48,
         precoBroto: 29,
-        img: "assets/pizzas/cremeAvela.jpeg"
+        img: "assets/pizzas/Chocolate-ao-leite-pizza.png"
+    }
+];
+
+
+
+const precosBorda = {
+
+    Catupiry: {
+        broto: 7,
+        grande: 12
+    },
+
+    Cheddar: {
+        broto: 7,
+        grande: 12
+    },
+
+    Mussarela: {
+        broto: 9,
+        grande: 15
+    },
+
+    QuatroQueijos: {
+        broto: 9,
+        grande: 15
+    },
+    CremeAvela: {
+        broto: 7,
+        grande: 12
+    },
+
+    ChocolateBranco: {
+        broto: 7,
+        grande: 12
+    },
+
+    ChocolateAoLeite: {
+        broto: 7,
+        grande: 12
+    }
+
+
+};
+
+
+function atualizarBordas(tipo) {
+
+    const select = document.getElementById("pizzaBorda");
+    const opcoes = select.querySelectorAll("option");
+
+    opcoes.forEach(op => {
+
+        if (op.value === "") return;
+
+        const ehDoce = bordasDoces.includes(op.value);
+
+        if (tipo === "doce") {
+            op.style.display = ehDoce ? "block" : "none";
+        } else {
+            op.style.display = ehDoce ? "none" : "block";
         }
-        ];
 
+    });
 
-
-        const precosBorda = {
-
-            Catupiry: {
-                broto: 7,
-                grande: 12
-            },
-        
-            Cheddar: {
-                broto: 7,
-                grande: 12
-            },
-        
-            Mussarela: {
-                broto: 15,
-                grande: 9
-            },
-        
-            QuatroQueijos: {
-                broto: 15,
-                grande: 9
-            },
-        
-            CremeAvela: {
-                broto: 7,
-                grande: 12
-            },
-        
-            ChocolateBranco: {
-                broto: 7,
-                grande: 12
-            },
-        
-            ChocolateAoLeite: {
-                broto: 7,
-                grande: 12
-            }
-        
-        };
+    select.value = "";
+}
 
 function renderSabores(lista) {
 
     const container = document.getElementById("listaSabores");
-    
-    container.innerHTML = "";
-    
-    lista.forEach(sabor => {
-    
-    container.innerHTML += `
-    <div class="card-sabor" onclick="selecionarSabor('${sabor.nome}')">
-    
-    <img src="${sabor.img}" class="img-pizza">
-    
-    <h4>${sabor.nome}</h4>
-    
-    <span>
-    Broto: R$ ${sabor.precoBroto.toFixed(2)} <br>
-    Grande: R$ ${sabor.precoGrande.toFixed(2)}
-    </span>
-    
-    </div>
-    `;
-    
-    });
-    
-    }
 
-    renderSabores(sabores);
+    container.innerHTML = "";
+
+    lista.forEach(sabor => {
+
+        container.innerHTML += `
+            <div class="card-sabor" onclick="selecionarSabor('${sabor.nome}')">
+            
+            <img src="${sabor.img}" class="img-pizza">
+            
+            <h4>${sabor.nome}</h4>
+            
+            <span>
+            Broto: R$ ${sabor.precoBroto?.toFixed(2) ?? "--"} <br>
+            Grande: R$ ${sabor.precoGrande?.toFixed(2) ?? "--"}
+            </span>
+            
+            <button 
+            class="btn-ingredientes"
+            onclick="event.stopPropagation(); toggleIngredientes(this)">
+            Ingredientes
+            </button>
+            
+            <p class="ingredientes">
+            ${sabor.descricao || "Ingredientes não informados"}
+            </p>
+            
+            </div>
+            `;
+
+    });
+
+}
+
+
+function toggleIngredientes(btn) {
+
+    const texto = btn.nextElementSibling;
+
+    texto.style.display =
+        texto.style.display === "block"
+            ? "none"
+            : "block";
+
+}
 
 // ===== STATUS RESTAURANTE =====
 const statusRestaurante = document.getElementById("statusRestaurante");
@@ -419,7 +484,6 @@ function atualizarBuilder() {
 
 }
 
-
 function adicionarPizza() {
 
     if (!restauranteAberto) {
@@ -427,23 +491,16 @@ function adicionarPizza() {
         return;
     }
 
-    const tamanho =
-        document.getElementById("pizzaTamanho").value;
+    const tamanho = document.getElementById("pizzaTamanho").value;
+    const borda = document.getElementById("pizzaBorda").value;
+    const tipo = document.getElementById("tipoPizza").value;
 
-    const borda =
-        document.getElementById("pizzaBorda").value;
-
-    const tipo =
-        document.getElementById("tipoPizza").value;
-
-    if (tipo === "inteira" &&
-        saboresSelecionados.length !== 1) {
+    if (tipo === "inteira" && saboresSelecionados.length !== 1) {
         alert("Escolha 1 sabor");
         return;
     }
 
-    if (tipo === "meia" &&
-        saboresSelecionados.length !== 2) {
+    if (tipo === "meia" && saboresSelecionados.length !== 2) {
         alert("Escolha 2 sabores");
         return;
     }
@@ -454,8 +511,7 @@ function adicionarPizza() {
             : "🍕 GRANDE (8 pedaços)";
 
     let nomePizza =
-        `${tamanhoTexto} - ` +
-        saboresSelecionados.join(" / ");
+        `${tamanhoTexto} - ` + saboresSelecionados.join(" / ");
 
     if (borda)
         nomePizza += ` + Borda ${borda}`;
@@ -465,12 +521,10 @@ function adicionarPizza() {
     let valorBorda = 0;
 
     if (borda && precosBorda[borda]) {
-    
         valorBorda =
             tamanho === "G"
                 ? precosBorda[borda].grande
                 : precosBorda[borda].broto;
-    
     }
 
     carrinho.push({
@@ -487,87 +541,31 @@ function adicionarPizza() {
     renderCarrinho();
     atualizarTotal();
     atualizarBuilder();
-
-}function adicionarPizza() {
-
-    if (!restauranteAberto) {
-        alert("Restaurante fechado");
-        return;
-    }
-
-    const tamanho =
-        document.getElementById("pizzaTamanho").value;
-
-    const borda =
-        document.getElementById("pizzaBorda").value;
-
-    const tipo =
-        document.getElementById("tipoPizza").value;
-
-    if (tipo === "inteira" &&
-        saboresSelecionados.length !== 1) {
-        alert("Escolha 1 sabor");
-        return;
-    }
-
-    if (tipo === "meia" &&
-        saboresSelecionados.length !== 2) {
-        alert("Escolha 2 sabores");
-        return;
-    }
-
-    let tamanhoTexto =
-        tamanho === "P"
-            ? "🍕 BROTO (4 pedaços)"
-            : "🍕 GRANDE (8 pedaços)";
-
-    let nomePizza =
-        `${tamanhoTexto} - ` +
-        saboresSelecionados.join(" / ");
-
-    if (borda)
-        nomePizza += ` + Borda ${borda}`;
-
-    let precoPizza = calcularPrecoPizza();
-
-    // VALOR DA BORDA POR TAMANHO
-    let valorBorda = 0;
-
-    if (borda && precosBorda[borda]) {
-
-        valorBorda =
-            tamanho === "G"
-                ? precosBorda[borda].grande
-                : precosBorda[borda].broto;
-
-    }
-
-    carrinho.push({
-        nome: nomePizza,
-        preco: precoPizza,
-        borda: borda || "",
-        valorBorda: valorBorda,
-        obs: ""
-    });
-
-    saboresSelecionados = [];
-
-    salvar();
-    renderCarrinho();
-    atualizarTotal();
-    atualizarBuilder();
-
 }
-
 
 // ===== DADOS INICIAIS =====
 let carrinho =
     JSON.parse(localStorage.getItem("carrinho")) || [];
 
 const taxasEntrega = {
-    "Feital": 2,
+    "Araretama": 20,
+    "Bairro das Campinas": 6,
     "Centro": 12,
-    "Cidade Nova": 3
+    "Cícero Prado": 6,
+    "Cidade Nova": 3,
+    "Feital": 2,
+    "Goiabal": 15,
+    "Jardim Eloyna": 5,
+    "Jardim Regina": 3,
+    "Lot. João Tamborideguy Fernandes": 7,
+    "Maricá": 5,
+    "Marieta Azeredo": 7,
+    "Padre Rodolfo": 7,
+    "Parque Empresarial Santa Rita": 15,
+    "Shangrillá": 12,
+    "Terra Nova": 2,
+    "Vitória Vale 2": 8,
+    "Vitória Vale 3": 6
 };
 
 const tipoEntrega =
@@ -788,33 +786,35 @@ function enviarPedido() {
 }
 
 document.querySelectorAll(".categorias-fixa a")
-.forEach(link => {
+    .forEach(link => {
 
-link.addEventListener("click", (e) => {
+        link.addEventListener("click", (e) => {
 
-e.preventDefault();
+            e.preventDefault();
 
-const id = link.getAttribute("href");
-const secao = document.querySelector(id);
+            const id = link.getAttribute("href");
+            const secao = document.querySelector(id);
 
-// muda sabores
-if (id === "#PizzasSalgadas") {
-renderSabores(sabores);
-}
+            // muda sabores
+            if (id === "#PizzasSalgadas") {
+                renderSabores(sabores);
+                atualizarBordas("salgada");
+            }
 
-if (id === "#PizzasDoces") {
-renderSabores(pizzasDoces);
-}
+            if (id === "#PizzasDoces") {
+                renderSabores(pizzasDoces);
+                atualizarBordas("doce");
+            }
 
-// rola até a seção
-if (secao) {
-secao.scrollIntoView({
-behavior: "smooth"
-});
-}
+            // rola até a seção
+            if (secao) {
+                secao.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
 
-});
-});
+        });
+    });
 // ===============================
 // BEBIDAS -> CARRINHO AUTOMÁTICO
 // ===============================
