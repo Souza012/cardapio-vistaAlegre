@@ -274,60 +274,63 @@ body {
     margin-bottom: 8px;
 }
 
-.lista-bebidas{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    }
-    
-    .card-bebida{
-    background:#fff;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    }
-    
-    .card-bebida img{
-    width:100%;
-    height:130px;
-    object-fit:contain;
-    margin-bottom:10px;
-    }
-    
-    .controle{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    margin-top:10px;
-    }
-    
-    .controle button{
-    width:32px;
-    height:32px;
-    border:none;
-    border-radius:8px;
-    background:#16a34a;
-    color:#fff;
-    font-size:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    }
-    
-    .quantidade{
-    min-width:25px;
-    font-weight:bold;
-    text-align:center;
-    font-size:16px;
-    }
-    
+.lista-bebidas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
 
+.card-bebida {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-bebida img {
+    width: 100%;
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.controle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.controle button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #16a34a;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.quantidade {
+    min-width: 25px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+
+.card-sabor.ativo {
+    border: 3px solid #16a34a;
+    transform: scale(1.0);
+}
 
 .nome {
     font-weight: bold;
@@ -602,8 +605,8 @@ body {
     .menu {
         margin-top: 90px;
     }
-    
-    .lista-bebidas{
-        grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+
+    .lista-bebidas {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
 }

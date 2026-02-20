@@ -3,115 +3,254 @@ const horaAbertura = 1;
 const horaFechamento = 23;
 
 const sabores = [
+
     {
-        nome: "4 Queijos",
-        categoria: "salgada",
-        precoGrande: 58,
-        precoBroto: 38,
-        img: "assets/pizzas/4queijos.png"
+    nome: "Mussarela",
+    categoria: "salgada",
+    precoGrande: 45,
+    precoBroto: 27,
+    img: "assets/pizzas/mussarela-pizza.png"
     },
+    
     {
-        nome: "Brocolis c/ Bacon",
-        categoria: "salgada",
-        precoGrande: 56,
-        precoBroto: 36,
-        img: "assets/pizzas/brocolis-bacon.png"
+    nome: "Marguerita",
+    categoria: "salgada",
+    precoGrande: 45,
+    precoBroto: 27,
+    img: "assets/pizzas/marguerida-pizza.png"
     },
+    
     {
-        nome: "Carne seca c/ Catupiry",
-        categoria: "salgada",
-        precoGrande: 67,
-        precoBroto: 48,
-        img: "assets/pizzas/carne-seca-catupiry.jpeg"
+    nome: "Bauru",
+    categoria: "salgada",
+    precoGrande: 45,
+    precoBroto: 27,
+    img: "assets/pizzas/bauru-pizza.png"
     },
+    
     {
-        nome: "Lombo Com Catupiry",
-        categoria: "salgada",
-        precoGrande: 58,
-        precoBroto: 39,
-        img: "assets/pizzas/lombo-catupiry.jpeg"
+    nome: "Calabresa",
+    categoria: "salgada",
+    precoGrande: 45,
+    precoBroto: 27,
+    img: "assets/pizzas/calabresa-pizza.png"
     },
+    
     {
-        nome: "Portuguesa",
-        categoria: "salgada",
-        precoGrande: 55,
-        precoBroto: 37,
-        img: "assets/pizzas/portuguesa.jpeg"
+    nome: "Bacon",
+    categoria: "salgada",
+    precoGrande: 56,
+    precoBroto: 34,
+    img: "assets/pizzas/fran-bacon.png"
     },
+    
     {
-        nome: "Creme de Avelã",
-        categoria: "doce",
-        precoGrande: 39,
-        precoBroto: 27,
-        img: "assets/pizzas/"
+    nome: "Portuguesa",
+    categoria: "salgada",
+    precoGrande: 55,
+    precoBroto: 33,
+    img: "assets/pizzas/portuguesa.jpeg"
+    },
+    
+    {
+    nome: "Frango c/ Catupiry",
+    categoria: "salgada",
+    precoGrande: 57,
+    precoBroto: 35,
+    img: "assets/pizzas/frango-catupiry-pizza.png"
+    },
+    
+    {
+    nome: "2 Queijos",
+    categoria: "salgada",
+    precoGrande: 52,
+    precoBroto: 32,
+    img: "assets/pizzas/4queijos.png"
+    },
+    
+    {
+    nome: "Palmito",
+    categoria: "salgada",
+    precoGrande: 50,
+    precoBroto: 30,
+    img: "assets/pizzas/portuguesa.jpeg"
+    },
+    
+    {
+    nome: "Brocolis com Bacon",
+    categoria: "salgada",
+    precoGrande: 56,
+    precoBroto: 34,
+    img: "assets/pizzas/brocolis-bacon.png"
+    },
+    
+    {
+    nome: "Fran Bacon",
+    categoria: "salgada",
+    precoGrande: 56,
+    precoBroto: 34,
+    img: "assets/pizzas/fran-bacon.png"
+    },
+    
+    {
+    nome: "Carijó",
+    categoria: "salgada",
+    precoGrande: 54,
+    precoBroto: 33,
+    img: "assets/pizzas/frango-catupiry-pizza.png"
+    },
+    
+    {
+    nome: "Frango Especial",
+    categoria: "salgada",
+    precoGrande: 62,
+    precoBroto: 37,
+    img: "assets/pizzas/frango-catupiry-pizza.png"
+    },
+    
+    {
+    nome: "Baiacatu",
+    categoria: "salgada",
+    precoGrande: 50,
+    precoBroto: 30,
+    img: "assets/pizzas/baiiacatu-pizza.png"
+    },
+    
+    {
+    nome: "4 Queijos",
+    categoria: "salgada",
+    precoGrande: 58,
+    precoBroto: 35,
+    img: "assets/pizzas/4queijos.png"
+    },
+    
+    {
+    nome: "Lombo com Catupiry",
+    categoria: "salgada",
+    precoGrande: 58,
+    precoBroto: 35,
+    img: "assets/pizzas/lombo-catupiry.jpeg"
+    },
+    
+    {
+    nome: "Peperoni",
+    categoria: "salgada",
+    precoGrande: 60,
+    precoBroto: 36,
+    img: "assets/pizzas/peperoni-pizza.jpeg"
+    },
+    
+    {
+    nome: "Pizza da Casa",
+    categoria: "salgada",
+    precoGrande: 65,
+    precoBroto: 39,
+    img: "assets/pizzas/fran-bacon.png"
+    },
+    
+    {
+    nome: "Carne Seca Acebolada",
+    categoria: "salgada",
+    precoGrande: 65,
+    precoBroto: 39,
+    img: "assets/pizzas/carne-seca-aceboolada.png"
+    },
+    
+    {
+    nome: "Carne Seca c/ Catupiry",
+    categoria: "salgada",
+    precoGrande: 67,
+    precoBroto: 40,
+    img: "assets/pizzas/carne-seca-catupiry.jpeg"
     }
-];
+    
+    ];
+
+
+    const pizzasDoces = [
+        {
+        nome: "Creme de Avelã",
+        precoGrande: 48,
+        precoBroto: 29,
+        img: "assets/pizzas/cremeAvela.jpeg"
+        },
+        {
+        nome: "Creme de Avelã",
+        precoGrande: 48,
+        precoBroto: 29,
+        img: "assets/pizzas/cremeAvela.jpeg"
+        }
+        ];
 
 
 
-const precosBorda = {
-    "Catupiry": 8,
-    "Cheddar": 7,
-};
+        const precosBorda = {
 
-function renderSabores(categoria) {
+            Catupiry: {
+                broto: 7,
+                grande: 12
+            },
+        
+            Cheddar: {
+                broto: 7,
+                grande: 12
+            },
+        
+            Mussarela: {
+                broto: 15,
+                grande: 9
+            },
+        
+            QuatroQueijos: {
+                broto: 15,
+                grande: 9
+            },
+        
+            CremeAvela: {
+                broto: 7,
+                grande: 12
+            },
+        
+            ChocolateBranco: {
+                broto: 7,
+                grande: 12
+            },
+        
+            ChocolateAoLeite: {
+                broto: 7,
+                grande: 12
+            }
+        
+        };
 
-    const container =
-        document.getElementById("listaSabores");
+function renderSabores(lista) {
 
+    const container = document.getElementById("listaSabores");
+    
     container.innerHTML = "";
-
-    sabores
-        .filter(s => s.categoria === categoria)
-        .forEach(sabor => {
-
-            container.innerHTML += `
-    <div class="card-pizza">
-    <img src="${sabor.img}">
-    <h3>${sabor.nome}</h3>
-    <p>
-    Broto: R$ ${sabor.precoBroto.toFixed(2)}<br>
-    Grande: R$ ${sabor.precoGrande.toFixed(2)}
-    </p>
-    <button onclick="selecionarSabor('${sabor.nome}')">
-    Selecionar
-    </button>
-    </div>
-    `;
-
-        });
-
-}
-
-
-
-// ===== GERAR CARDS VISUAIS =====
-const listaSabores = document.getElementById("listaSabores");
-
-if (listaSabores) {
-
-    sabores.forEach((pizza, index) => {
-
-        listaSabores.innerHTML += `
-    <div class="card-sabor" onclick="selecionarSabor('${pizza.nome}')">
     
-    <img src="${pizza.img}" class="img-pizza">
+    lista.forEach(sabor => {
     
-    <h4>${pizza.nome}</h4>
+    container.innerHTML += `
+    <div class="card-sabor" onclick="selecionarSabor('${sabor.nome}')">
+    
+    <img src="${sabor.img}" class="img-pizza">
+    
+    <h4>${sabor.nome}</h4>
     
     <span>
-    Broto: R$ ${pizza.precoBroto.toFixed(2)} <br>
-    Grande: R$ ${pizza.precoGrande.toFixed(2)}
+    Broto: R$ ${sabor.precoBroto.toFixed(2)} <br>
+    Grande: R$ ${sabor.precoGrande.toFixed(2)}
     </span>
     
     </div>
     `;
-
-
+    
     });
+    
+    }
 
-}
-
+    renderSabores(sabores);
 
 // ===== STATUS RESTAURANTE =====
 const statusRestaurante = document.getElementById("statusRestaurante");
@@ -216,30 +355,25 @@ function selecionarSabor(nome) {
 
 }
 
-
 function calcularPrecoPizza() {
 
-    if (saboresSelecionados.length === 0)
-        return 0;
+    if (saboresSelecionados.length === 0) return 0;
 
-    const tamanho =
-        document.getElementById("pizzaTamanho").value;
+    const tamanho = document.getElementById("pizzaTamanho").value;
 
-    let precos =
-        saboresSelecionados.map(s => {
+    const todasPizzas = [...sabores, ...pizzasDoces];
 
-            let sabor = sabores.find(x => x.nome === s);
+    let precos = saboresSelecionados.map(nome => {
 
-            return tamanho === "P"
-                ? sabor.precoBroto
-                : sabor.precoGrande;
+        let sabor = todasPizzas.find(x => x.nome === nome);
 
-        });
+        return tamanho === "P"
+            ? sabor.precoBroto
+            : sabor.precoGrande;
 
-    let maiorPreco = Math.max(...precos, 0);
+    });
 
-    return maiorPreco;
-
+    return Math.max(...precos, 0);
 }
 
 function atualizarBuilder() {
@@ -323,14 +457,90 @@ function adicionarPizza() {
         `${tamanhoTexto} - ` +
         saboresSelecionados.join(" / ");
 
+    if (borda)
+        nomePizza += ` + Borda ${borda}`;
+
+    let precoPizza = calcularPrecoPizza();
+
+    let valorBorda = 0;
+
+    if (borda && precosBorda[borda]) {
+    
+        valorBorda =
+            tamanho === "G"
+                ? precosBorda[borda].grande
+                : precosBorda[borda].broto;
+    
+    }
+
+    carrinho.push({
+        nome: nomePizza,
+        preco: precoPizza,
+        borda: borda || "",
+        valorBorda: valorBorda,
+        obs: ""
+    });
+
+    saboresSelecionados = [];
+
+    salvar();
+    renderCarrinho();
+    atualizarTotal();
+    atualizarBuilder();
+
+}function adicionarPizza() {
+
+    if (!restauranteAberto) {
+        alert("Restaurante fechado");
+        return;
+    }
+
+    const tamanho =
+        document.getElementById("pizzaTamanho").value;
+
+    const borda =
+        document.getElementById("pizzaBorda").value;
+
+    const tipo =
+        document.getElementById("tipoPizza").value;
+
+    if (tipo === "inteira" &&
+        saboresSelecionados.length !== 1) {
+        alert("Escolha 1 sabor");
+        return;
+    }
+
+    if (tipo === "meia" &&
+        saboresSelecionados.length !== 2) {
+        alert("Escolha 2 sabores");
+        return;
+    }
+
+    let tamanhoTexto =
+        tamanho === "P"
+            ? "🍕 BROTO (4 pedaços)"
+            : "🍕 GRANDE (8 pedaços)";
+
+    let nomePizza =
+        `${tamanhoTexto} - ` +
+        saboresSelecionados.join(" / ");
 
     if (borda)
         nomePizza += ` + Borda ${borda}`;
 
     let precoPizza = calcularPrecoPizza();
 
-    // pega valor da borda
-    let valorBorda = precosBorda[borda] || 0;
+    // VALOR DA BORDA POR TAMANHO
+    let valorBorda = 0;
+
+    if (borda && precosBorda[borda]) {
+
+        valorBorda =
+            tamanho === "G"
+                ? precosBorda[borda].grande
+                : precosBorda[borda].broto;
+
+    }
 
     carrinho.push({
         nome: nomePizza,
@@ -400,7 +610,7 @@ ${item.borda ? `<br>🧀 Borda ${item.borda} + R$ ${item.valorBorda.toFixed(2)}`
 
 
 <input
-placeholder="Observação"
+placeholder="Observação Ex: sem cebola"
 value="${item.obs || ""}"
 onchange="salvarObs(${index},this.value)"
 >
@@ -439,64 +649,62 @@ function atualizarTotal() {
 
     let total = 0;
 
+    // soma itens do carrinho
     carrinho.forEach(item => {
-        total += item.preco;
-        total += item.valorBorda || 0;
+        total += Number(item.preco) || 0;
+        total += Number(item.valorBorda) || 0;
     });
 
     let taxa = 0;
 
-    if (tipoEntrega &&
-        tipoEntrega.value === "entrega") {
+    // verifica tipo de entrega
+    if (tipoEntrega && tipoEntrega.value === "entrega") {
 
         taxa = taxasEntrega[bairro?.value] || 0;
 
-        if (enderecoBox)
+        if (enderecoBox) {
             enderecoBox.style.display = "block";
+        }
 
     } else {
 
-        if (enderecoBox)
+        if (enderecoBox) {
             enderecoBox.style.display = "none";
+        }
 
     }
 
-    const taxaSpan =
-        document.getElementById("taxaEntrega");
+    // mostra taxa
+    const taxaSpan = document.getElementById("taxaEntrega");
+    if (taxaSpan) {
+        taxaSpan.textContent = taxa.toFixed(2);
+    }
 
-    if (taxaSpan)
-        taxaSpan.textContent =
-            taxa.toFixed(2);
-
+    // soma taxa
     total += taxa;
 
-    const totalSpan =
-        document.getElementById("total");
-
-    if (totalSpan)
-        totalSpan.textContent =
-            total.toFixed(2);
-
+    // mostra total
+    const totalSpan = document.getElementById("total");
+    if (totalSpan) {
+        totalSpan.textContent = total.toFixed(2);
+    }
 }
 
-if (tipoEntrega)
-    tipoEntrega.addEventListener("change",
-        atualizarTotal);
 
-if (bairro)
-    bairro.addEventListener("change",
-        atualizarTotal);
+// ===== EVENTOS =====
+if (tipoEntrega) {
+    tipoEntrega.addEventListener("change", atualizarTotal);
+}
 
-const selectTamanho =
-    document.getElementById("pizzaTamanho");
+if (bairro) {
+    bairro.addEventListener("change", atualizarTotal);
+}
+
+const selectTamanho = document.getElementById("pizzaTamanho");
 
 if (selectTamanho) {
-    selectTamanho.addEventListener(
-        "change",
-        atualizarPrecoPreview
-    );
+    selectTamanho.addEventListener("change", atualizarPrecoPreview);
 }
-
 
 
 // ===== WHATSAPP =====
@@ -513,8 +721,7 @@ function enviarPedido() {
     }
 
     const nomeCliente =
-        document.getElementById("nome").value
-        || "Cliente";
+        document.getElementById("nome").value || "Cliente";
 
     const pagamento =
         document.getElementById("pagamento").value;
@@ -522,8 +729,15 @@ function enviarPedido() {
     const tipo =
         tipoEntrega.value;
 
+    // HORARIO
+    const agora = new Date();
+    const hora = agora.toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
     let mensagem =
-        `🍕 *NOVO PEDIDO*\n\n`;
+        `🍕 *NOVO PEDIDO* (${hora})\n\n`;
 
     mensagem += `👤 ${nomeCliente}\n`;
     mensagem += `🚚 ${tipo}\n`;
@@ -532,11 +746,9 @@ function enviarPedido() {
 
         mensagem += `📍 ${bairro.value}\n`;
 
-        mensagem += `🏠 ${document.getElementById("endereco").value
-            }\n`;
+        mensagem += `🏠 ${document.getElementById("endereco").value}\n`;
 
-        mensagem += `🧾 ${document.getElementById("complemento").value
-            }\n`;
+        mensagem += `🧾 ${document.getElementById("complemento").value}\n`;
 
     }
 
@@ -552,68 +764,57 @@ function enviarPedido() {
 
     });
 
+    // TROCO
+    if (pagamento === "Dinheiro") {
+
+        const troco = document.getElementById("troco").value;
+
+        if (troco) {
+            mensagem += `\n💵 Troco para: R$ ${troco}\n`;
+        }
+
+    }
+
     mensagem += `\n💳 ${pagamento}`;
-    mensagem += `\n💰 Total R$ ${document.getElementById("total").textContent
-        }`;
+
+    mensagem += `\n💰 Total R$ ${document.getElementById("total").textContent}`;
 
     const numero = "5512981860808";
 
     const url =
-        `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)
-        }`;
+        `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
     window.open(url, "_blank");
-
 }
 
-document
-    .querySelectorAll(".categorias-fixa a")
-    .forEach(link => {
+document.querySelectorAll(".categorias-fixa a")
+.forEach(link => {
 
-        link.addEventListener("click", (e) => {
+link.addEventListener("click", (e) => {
 
-            e.preventDefault();
+e.preventDefault();
 
-            const id = link
-                .getAttribute("href")
-                .replace("#", "");
+const id = link.getAttribute("href");
+const secao = document.querySelector(id);
 
-            document
-                .querySelectorAll(".categoria")
-                .forEach(sec => {
-                    sec.style.display = "none";
-                });
+// muda sabores
+if (id === "#PizzasSalgadas") {
+renderSabores(sabores);
+}
 
-            document
-                .getElementById(id)
-                .style.display = "block";
+if (id === "#PizzasDoces") {
+renderSabores(pizzasDoces);
+}
 
-            if (id === "PizzasDoces") {
-                renderSabores("doce");
-            }
+// rola até a seção
+if (secao) {
+secao.scrollIntoView({
+behavior: "smooth"
+});
+}
 
-            if (id === "PizzasSalgadas") {
-                renderSabores("salgada");
-            }
-            if (id === "PizzasDoces") {
-                renderSabores("doce");
-            }
-
-            if (id === "PizzasSalgadas") {
-                renderSabores("salgada");
-            }
-
-
-            document
-                .querySelectorAll(".categorias-fixa a")
-                .forEach(l => l.classList.remove("ativo"));
-
-            link.classList.add("ativo");
-
-        });
-
-    });
-
+});
+});
 // ===============================
 // BEBIDAS -> CARRINHO AUTOMÁTICO
 // ===============================
@@ -669,8 +870,21 @@ document.querySelectorAll(".contador").forEach(card => {
 });
 
 
+document.getElementById("pagamento").addEventListener("change", function () {
+
+    const areaTroco = document.getElementById("areaTroco");
+
+    if (this.value === "Dinheiro") {
+        areaTroco.style.display = "block";
+    } else {
+        areaTroco.style.display = "none";
+    }
+
+});
+
 
 
 // ===== INIT =====
+renderSabores(sabores);
 renderCarrinho();
 atualizarTotal();

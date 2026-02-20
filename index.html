@@ -33,7 +33,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
         
         <h1>Pizzaria Vista Alegre</h1>
         
-        <span>Av. Sd. Paulo Alves, 451, Pindamonhangaba - SP</span>
+        <span>Av. Sd. Paulo Alves, 640, Pindamonhangaba - SP</span>
         
         <div class="status">
         <span>Qui á Seg - 19:00 as 23:00</span>
@@ -50,15 +50,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 
 <div class="categorias-fixa">
 <div class="categorias-container">
-<a href="#Pizzas" class="ativo">Pizzas</a>
-<a href="#Bebidas">Bebidas</a>
+<a href="#PizzasSalgadas">Pizzas Salgadas</a>
 <a href="#PizzasDoces">Pizzas Doces</a>
+<a href="#Bebidas">Bebidas</a>
 </div>
 </div>
 
 <main class="menu">
 
-    <section id="Pizzas" class="categoria">
+    <section id="PizzasSalgadas" class="categoria">
     
     <h2>🍕 Faça seu Pedido</h2>
     
@@ -70,9 +70,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
     </select>
     
     <select id="pizzaBorda">
-    <option value="">Sem borda</option>
-    <option value="Catupiry">Catupiry - R$8,00</option>
-    <option value="Cheddar">Cheddar - R$7,00</option>
+        <option value="">Sem borda</option>
+        <option value="Catupiry">Catupiry - Broto R$7 | Grande R$12</option>
+        <option value="Cheddar">Cheddar - Broto R$7 | Grande R$12</option>
     </select>
     
     <select id="tipoPizza">
@@ -94,7 +94,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
     
     </section>
 
-    <section id="Bebidas" class="categoria" style="display:none;">
+    <section id="Bebidas" class="categoria">
 <h2>🥤 Bebidas</h2>
 
 <div class="lista-bebidas">
@@ -113,9 +113,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 </div>
 
 <!-- COCA 2L -->
-<div class="card-bebida contador" data-name="Coca-Cola 2L" data-price="12">
+<div class="card-bebida contador" data-name="Coca-Cola 2L" data-price="1">
 <img src="./assets/bebidas/coca2L.webp">
-<p>Coca-Cola 2L <br><strong>R$ 12,00</strong></p>
+<p>Coca-Cola 2L <br><strong>R$ 15,00</strong></p>
 
 <div class="controle">
     <button class="diminuir">-</button>
@@ -139,9 +139,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 </div>
 
 <!-- GUARANÁ 1L -->
-<div class="card-bebida contador" data-name="Guaraná 1L" data-price="8">
+<div class="card-bebida contador" data-name="Guaraná 1L" data-price="7">
 <img src="./assets/bebidas/guarana-1l.jpg">
-<p>Guaraná 1L <br><strong>R$ 8,00</strong></p>
+<p>Guaraná 1L <br><strong>R$ 7,00</strong></p>
 
 <div class="controle">
     <button class="diminuir">-</button>
@@ -152,9 +152,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 </div>
 
 <!-- GUARANÁ 2L -->
-<div class="card-bebida contador" data-name="Guaraná 2L" data-price="10">
+<div class="card-bebida contador" data-name="Guaraná 2L" data-price="13">
 <img src="./assets/bebidas/guarana-2l.webp">
-<p>Guaraná 2L <br><strong>R$ 10,00</strong></p>
+<p>Guaraná 2L <br><strong>R$ 13,00</strong></p>
 
 <div class="controle">
     <button class="diminuir">-</button>
@@ -165,9 +165,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 </div>
 
 <!-- FANTA LARANJA 2L -->
-<div class="card-bebida contador" data-name="Fanta Laranja 2L" data-price="11">
+<div class="card-bebida contador" data-name="Fanta Laranja 2L" data-price="13">
 <img src="./assets/bebidas/fanta-2L.jpg">
-<p>Fanta Laranja 2L <br><strong>R$ 11,00</strong></p>
+<p>Fanta Laranja 2L <br><strong>R$ 13,00</strong></p>
 
 <div class="controle">
     <button class="diminuir">-</button>
@@ -178,9 +178,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 </div>
 
 <!-- FANTA UVA 2L -->
-<div class="card-bebida contador" data-name="Fanta Uva 2L" data-price="11">
+<div class="card-bebida contador" data-name="Fanta Uva 2L" data-price="13">
 <img src="./assets/bebidas/uva.webp">
-<p>Fanta Uva 2L <br><strong>R$ 11,00</strong></p>
+<p>Fanta Uva 2L <br><strong>R$ 13,00</strong></p>
 
 <div class="controle">
     <button class="diminuir">-</button>
@@ -191,9 +191,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 </div>
 
 <!-- SPRITE 2L -->
-<div class="card-bebida contador" data-name="Sprite 2L" data-price="9">
+<div class="card-bebida contador" data-name="Sprite 2L" data-price="13">
 <img src="./assets/bebidas/spreite.webp">
-<p>Sprite 2L <br><strong>R$ 9,00</strong></p>
+<p>Sprite 2L <br><strong>R$ 13,00</strong></p>
 
 <div class="controle">
     <button class="diminuir">-</button>
@@ -242,6 +242,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 <option>Cartão</option>
 <option>Dinheiro</option>
 </select>
+
+<div id="areaTroco" style="display:none;">
+    <input type="number" id="troco" placeholder="Troco para quanto?" />
+</div>
 
 <h3 class="titulo-pedido">Seu Pedido:</h3>
 
