@@ -564,6 +564,24 @@ body {
     text-align: center;
 }
 
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    }
+    
+    .whatsapp-float img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    }
+    
+    .whatsapp-float img:hover {
+    transform: scale(1.1);
+    }
+
 /* ===== TABLETS / TELAS MÉDIAS ===== */
 @media (max-width:900px) {
 
