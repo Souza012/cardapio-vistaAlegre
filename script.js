@@ -46,7 +46,7 @@ const sabores = [
         categoria: "salgada",
         precoGrande: 56,
         precoBroto: 34,
-        img: "assets/pizzas/fran-bacon.png"
+        img: "assets/pizzas/bacon-pizza.jpeg"
     },
 
     {
@@ -164,6 +164,15 @@ const sabores = [
         precoGrande: 65,
         precoBroto: 39,
         img: "assets/pizzas/fran-bacon.png"
+    },
+
+    {
+        nome: "Atum",
+        descricao: "Molho de tomate, mussarela, atum, cebola e orégano.",
+        categoria: "salgada",
+        precoGrande: 57,
+        precoBroto: 35,
+        img: "assets/pizzas/carne-seca-catupiry.jpeg"
     },
 
     {
@@ -548,22 +557,33 @@ let carrinho =
     JSON.parse(localStorage.getItem("carrinho")) || [];
 
 const taxasEntrega = {
+    "Alto Cardoso": 18,
     "Araretama": 20,
     "Bairro das Campinas": 6,
+    "Beta": 5,
+    "Castolira": 7,
     "Centro": 12,
     "Cícero Prado": 6,
     "Cidade Nova": 3,
+    "Crispim": 15,
+    "Delta": 5,
     "Feital": 2,
     "Goiabal": 15,
     "Jardim Eloyna": 5,
     "Jardim Regina": 3,
+    "Laerte Assunnção": 9,
     "Lot. João Tamborideguy Fernandes": 7,
+    "Mantiqueira": 15,
     "Maricá": 5,
     "Marieta Azeredo": 7,
     "Padre Rodolfo": 7,
     "Parque Empresarial Santa Rita": 15,
-    "Shangrillá": 12,
+    "Reserva dos Lagos": 15,
+    "Santa Cecília": 7,
+    "Santana": 12,
+    "Shangrillá": 8,
     "Terra Nova": 2,
+    "Triângulo": 5,
     "Vitória Vale 2": 8,
     "Vitória Vale 3": 6
 };
@@ -881,6 +901,22 @@ document.getElementById("pagamento").addEventListener("change", function () {
     }
 
 });
+
+const balaoWhatsapp = document.querySelector(".whatsapp-msg");
+
+function mostrarBalao(){
+
+    balaoWhatsapp.style.display = "block";
+
+    setTimeout(() => {
+        balaoWhatsapp.style.display = "none";
+    }, 5000);
+
+}
+
+setInterval(mostrarBalao,15000);
+
+setTimeout(mostrarBalao,4000);
 
 
 

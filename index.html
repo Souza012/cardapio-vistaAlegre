@@ -2,296 +2,310 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<title>Cardápio</title>
+    <title>Cardápio</title>
 </head>
 
 <body>
 
     <header class="header">
 
-        <video class="bg-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto">
-        
-        <source src="./assets/3752507-hd_1920_1080_24fps.mp4" type="video/mp4">
-        
+        <video class="bg-video" autoplay muted loop playsinline preload="auto">
+
+            <source src="./assets/3752507-hd_1920_1080_24fps.mp4" type="video/mp4">
+
         </video>
-        
+
         <div class="header-content">
-        
-        <img src="./assets/Design sem nome.png" class="logo">
-        
-        <h1>Pizzaria Vista Alegre</h1>
-        
-        <span>Av. Sd. Paulo Alves, 640, Pindamonhangaba - SP</span>
-        
-        <div class="status">
-        <span>Qui á Seg - 19:00 as 23:00</span>
+
+            <img src="./assets/Design sem nome.png" class="logo">
+
+            <h1>Pizzaria Vista Alegre</h1>
+
+            <span>Av. Sd. Paulo Alves, 640, Pindamonhangaba - SP</span>
+
+            <div class="status">
+                <span>Qui á Seg - 19:00 as 23:00</span>
+            </div>
+
+            <p id="statusRestaurante" class="horario status-aberto">🟢 Aberto</p>
+            <p id="Abertura" class="horario"></p>
+
         </div>
-        
-        <p id="statusRestaurante" class="horario status-aberto">🟢 Aberto</p>
-        <p id="Abertura" class="horario"></p>
-        
+    </header>
+
+
+    <h2 class="title">Conheça nosso menu!</h2>
+
+    <div class="categorias-fixa">
+        <div class="categorias-container">
+            <a href="#PizzasSalgadas">Pizzas Salgadas</a>
+            <a href="#PizzasDoces">Pizzas Doces</a>
+            <a href="#Bebidas">Bebidas</a>
         </div>
-        </header>
-        
-
-<h2 class="title">Conheça nosso menu!</h2>
-
-<div class="categorias-fixa">
-<div class="categorias-container">
-<a href="#PizzasSalgadas">Pizzas Salgadas</a>
-<a href="#PizzasDoces">Pizzas Doces</a>
-<a href="#Bebidas">Bebidas</a>
-</div>
-</div>
-
-<main class="menu">
-
-    <section id="PizzasSalgadas" class="categoria">
-    
-    <h2>🍕 Faça seu Pedido</h2>
-    
-    <div class="pizza-builder">
-    
-    <select id="pizzaTamanho">
-    <option value="P">Broto 4 Pedaços</option>
-    <option value="G">Grande 8 Pedaços</option>
-    </select>
-    
-    <select id="pizzaBorda">
-        <option value="">Sem borda</option>
-        <option value="Catupiry">Catupiry - Broto R$7 | Grande R$12</option>
-        <option value="Cheddar">Cheddar - Broto R$7 | Grande R$12</option>
-        <option value="Mussarela">Mussarela - Broto R$9 | Grande R$15</option>
-        <option value="QuatroQueijos">4 Queijos - Broto R$9 | Grande R$15</option>
-        <option value="CremeAvela">Creme de Avelã - Broto R$7 | Grande R$12</option>
-        <option value="ChocolateBranco">Chocolate Branco - Broto R$7 | Grande R$12</option>
-        <option value="ChocolateAoLeite">Chocolate ao Leite - Broto R$7 | Grande R$12</option>
-    </select>
-    
-    <select id="tipoPizza">
-    <option value="inteira">Inteira</option>
-    <option value="meia">Meia a Meia</option>
-    </select>
-    
-    <h3>Escolha os sabores</h3>
-    
-    <div id="listaSabores" class="lista-sabores"></div>
-    
-    <p id="pizzaPreview"></p>
-    
-    <button onclick="adicionarPizza()">
-    Adicionar Pizza 🍕
-    </button>
-    
     </div>
-    
-    </section>
 
-    <section id="Bebidas" class="categoria">
-<h2>🥤 Bebidas</h2>
+    <main class="menu">
 
-<div class="lista-bebidas">
+        <section id="PizzasSalgadas" class="categoria">
 
-<!-- COCA LATA -->
-<div class="card-bebida contador" data-name="Coca-Cola Lata" data-price="5">
-<img src="./assets/bebidas/coca-lata.webp">
-<p>Coca-Cola Lata <br><strong>R$ 5,00</strong></p>
+            <h2>🍕 Faça seu Pedido</h2>
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+            <div class="pizza-builder">
 
-<!-- COCA 2L -->
-<div class="card-bebida contador" data-name="Coca-Cola 2L" data-price="1">
-<img src="./assets/bebidas/coca2L.webp">
-<p>Coca-Cola 2L <br><strong>R$ 15,00</strong></p>
+                <select id="pizzaTamanho">
+                    <option value="P">Broto 4 Pedaços</option>
+                    <option value="G">Grande 8 Pedaços</option>
+                </select>
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+                <select id="pizzaBorda">
+                    <option value="">Sem borda</option>
+                    <option value="Catupiry">Catupiry - Broto R$7 | Grande R$12</option>
+                    <option value="Cheddar">Cheddar - Broto R$7 | Grande R$12</option>
+                    <option value="Mussarela">Mussarela - Broto R$9 | Grande R$15</option>
+                    <option value="QuatroQueijos">4 Queijos - Broto R$9 | Grande R$15</option>
+                    <option value="CremeAvela">Creme de Avelã - Broto R$7 | Grande R$12</option>
+                    <option value="ChocolateBranco">Chocolate Branco - Broto R$7 | Grande R$12</option>
+                    <option value="ChocolateAoLeite">Chocolate ao Leite - Broto R$7 | Grande R$12</option>
+                </select>
 
-<!-- COCA ZERO 2L -->
-<div class="card-bebida contador" data-name="Coca-Cola Zero 2L" data-price="15">
-<img src="./assets/bebidas/coca-zero.jpeg">
-<p>Coca Zero 2L <br><strong>R$ 15,00</strong></p>
+                <select id="tipoPizza">
+                    <option value="inteira">Inteira</option>
+                    <option value="meia">Meia a Meia</option>
+                </select>
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+                <h3>Escolha os sabores</h3>
 
-<!-- GUARANÁ 1L -->
-<div class="card-bebida contador" data-name="Guaraná 1L" data-price="7">
-<img src="./assets/bebidas/guarana-1l.jpg">
-<p>Guaraná 1L <br><strong>R$ 7,00</strong></p>
+                <div id="listaSabores" class="lista-sabores"></div>
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+                <p id="pizzaPreview"></p>
 
-<!-- GUARANÁ 2L -->
-<div class="card-bebida contador" data-name="Guaraná 2L" data-price="13">
-<img src="./assets/bebidas/guarana-2l.webp">
-<p>Guaraná 2L <br><strong>R$ 13,00</strong></p>
+                <button onclick="adicionarPizza()">
+                    Adicionar Pizza 🍕
+                </button>
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+            </div>
 
-<!-- FANTA LARANJA 2L -->
-<div class="card-bebida contador" data-name="Fanta Laranja 2L" data-price="13">
-<img src="./assets/bebidas/fanta-2L.jpg">
-<p>Fanta Laranja 2L <br><strong>R$ 13,00</strong></p>
+        </section>
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+        <section id="Bebidas" class="categoria">
+            <h2>🥤 Bebidas</h2>
 
-<!-- FANTA UVA 2L -->
-<div class="card-bebida contador" data-name="Fanta Uva 2L" data-price="13">
-<img src="./assets/bebidas/uva.webp">
-<p>Fanta Uva 2L <br><strong>R$ 13,00</strong></p>
+            <div class="lista-bebidas">
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+                <!-- COCA LATA -->
+                <div class="card-bebida contador" data-name="Coca-Cola Lata" data-price="5">
+                    <img src="./assets/bebidas/coca-lata.webp">
+                    <p>Coca-Cola Lata <br><strong>R$ 5,00</strong></p>
 
-<!-- SPRITE 2L -->
-<div class="card-bebida contador" data-name="Sprite 2L" data-price="13">
-<img src="./assets/bebidas/spreite.webp">
-<p>Sprite 2L <br><strong>R$ 13,00</strong></p>
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
 
-<div class="controle">
-    <button class="diminuir">-</button>
-    <span class="quantidade">0</span>
-    <button class="aumentar">+</button>
-</div>
-    
-</div>
+                </div>
 
-</div>
+                <!-- COCA 2L -->
+                <div class="card-bebida contador" data-name="Coca-Cola 2L" data-price="15">
+                    <img src="./assets/bebidas/coca2L.webp">
+                    <p>Coca-Cola 2L <br><strong>R$ 15,00</strong></p>
 
-</section>
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                </div>
+
+                <!-- COCA ZERO 2L -->
+                <div class="card-bebida contador" data-name="Coca-Cola Zero 2L" data-price="15">
+                    <img src="./assets/bebidas/coca-zero.jpeg">
+                    <p>Coca Zero 2L <br><strong>R$ 15,00</strong></p>
+
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                </div>
+
+                <!-- GUARANÁ 1L -->
+                <div class="card-bebida contador" data-name="Guaraná 1L" data-price="7">
+                    <img src="./assets/bebidas/guarana-1l.jpg">
+                    <p>Guaraná 1L <br><strong>R$ 7,00</strong></p>
+
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                </div>
+
+                <!-- GUARANÁ 2L -->
+                <div class="card-bebida contador" data-name="Guaraná 2L" data-price="13">
+                    <img src="./assets/bebidas/guarana-2l.webp">
+                    <p>Guaraná 2L <br><strong>R$ 13,00</strong></p>
+
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                </div>
+
+                <!-- FANTA LARANJA 2L -->
+                <div class="card-bebida contador" data-name="Fanta Laranja 2L" data-price="13">
+                    <img src="./assets/bebidas/fanta-2L.jpg">
+                    <p>Fanta Laranja 2L <br><strong>R$ 13,00</strong></p>
+
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                </div>
+
+                <!-- FANTA UVA 2L -->
+                <div class="card-bebida contador" data-name="Fanta Uva 2L" data-price="13">
+                    <img src="./assets/bebidas/uva.webp">
+                    <p>Fanta Uva 2L <br><strong>R$ 13,00</strong></p>
+
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                </div>
+
+                <!-- SPRITE 2L -->
+                <div class="card-bebida contador" data-name="Sprite 2L" data-price="13">
+                    <img src="./assets/bebidas/spreite.webp">
+                    <p>Sprite 2L <br><strong>R$ 13,00</strong></p>
+
+                    <div class="controle">
+                        <button class="diminuir">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
-    
-    
 
-<div class="checkout">
 
-<input id="nome" placeholder="Seu nome">
 
-<select id="tipoEntrega">
-<option value="retirada">Retirada</option>
-<option value="entrega">Entrega</option>
-</select>
+    <div class="checkout">
 
-<div id="enderecoBox" style="display:none;">
+        <input id="nome" placeholder="Seu nome">
 
-    <select id="bairro">
-        <option>Araretama</option>
-        <option>Bairro das Campinas</option>
-        <option>Centro</option>
-        <option>Cícero Prado</option>
-        <option>Cidade Nova</option>
-        <option>Feital</option>
-        <option>Goiabal</option>
-        <option>Jardim Eloyna</option>
-        <option>Jardim Regina</option>
-        <option>Lot. João Tamborideguy Fernandes</option>
-        <option>Maricá</option>
-        <option>Marieta Azeredo</option>
-        <option>Padre Rodolfo</option>
-        <option>Parque Empresarial Santa Rita</option>
-        <option>Shangrillá</option>
-        <option>Terra Nova</option>
-        <option>Vitória Vale 2</option>
-        <option>Vitória Vale 3</option>
-    </select>
+        <select id="tipoEntrega">
+            <option value="retirada">Retirada</option>
+            <option value="entrega">Entrega</option>
+        </select>
 
-<input id="endereco" placeholder="Rua / Número">
-<input id="complemento" placeholder="Complemento">
 
-<p>Taxa de entrega: R$
-<span id="taxaEntrega">0</span></p>
+        <div id="enderecoBox">
 
-</div>
+            <select id="bairro">
 
-<p>Forma de Pagamento?</p>
-<select id="pagamento">
-<option>Pix</option>
-<option>Cartão</option>
-<option>Dinheiro</option>
-</select>
+                <option value="" selected disabled>Selecione seu bairro</option>
 
-<div id="areaTroco" style="display:none;">
-    <input type="number" id="troco" placeholder="Troco para quanto?" />
-</div>
+                <option disabled>── Mais pedidos ──</option>
+                <option>Terra Nova</option>
+                <option>Feital</option>
+                <option>Cidade Nova</option>
+                <option>Jardim Eloyna</option>
+                <option>Jardim Regina</option>
 
-<h3 class="titulo-pedido">Seu Pedido:</h3>
+                <option disabled>────────────</option>
+                <option disabled>De A-Z</option>
 
-<div id="carrinho"></div>
+                <option>Alto Cardoso</option>
+                <option>Araretama</option>
+                <option>Bairro das Campinas</option>
+                <option>Castolira</option>
+                <option>Centro</option>
+                <option>Cícero Prado</option>
+                <option>Crispim</option>
+                <option>Goiabal</option>
+                <option>Laerte Assunção</option>
+                <option>Lot. João Tamborideguy Fernandes</option>
+                <option>Mantiqueira</option>
+                <option>Maricá</option>
+                <option>Marieta Azeredo</option>
+                <option>Padre Rodolfo</option>
+                <option>Parque Empresarial Santa Rita</option>
+                <option>Reserva dos Lagos</option>
+                <option>Santa Cecília</option>
+                <option>Santana</option>
+                <option>Shangrillá</option>
+                <option>Vitória Vale 2</option>
+                <option>Vitória Vale 3</option>
 
-<p>Total final: R$ <span id="total">0</span></p>
+            </select>
 
-<button id="btnEnviar"
-onclick="enviarPedido()">
-Enviar Pedido
-</button>
+            <input id="endereco" placeholder="Rua / Número">
+            <input id="complemento" placeholder="Complemento">
 
-</div>
+            <p>Taxa de entrega: R$
+                <span id="taxaEntrega">0</span>
+            </p>
 
-<a 
-href="https://wa.me/5512981860808?text=Estou%20com%20d%C3%BAvidas%20no%20site,%20posso%20pedir%20por%20aqui?"
-class="whatsapp-float"
-target="_blank"
->
+        </div>
 
-<img src="assets/whatsapp.png" alt="WhatsApp">
+        <p>Forma de Pagamento?</p>
+        <select id="pagamento">
+            <option>Pix</option>
+            <option>Cartão</option>
+            <option>Dinheiro</option>
+        </select>
 
-</a>
+        <div id="areaTroco" style="display:none;">
+            <input type="number" id="troco" placeholder="Troco para quanto?" />
+        </div>
 
-<script src="script.js" defer></script>
+        <h3 class="titulo-pedido">Seu Pedido:</h3>
+
+        <div id="carrinho"></div>
+
+        <p>Total final: R$ <span id="total">0</span></p>
+
+        <button id="btnEnviar" onclick="enviarPedido()">
+            Enviar Pedido
+        </button>
+
+    </div>
+
+    </div>
+
+    <a href="https://wa.me/5512981860808?text=Estou%20com%20d%C3%BAvidas%20no%20site,%20posso%20pedir%20por%20aqui?"
+        class="whatsapp-float" target="_blank">
+
+        <span class="whatsapp-msg">🍕 Dúvidas? Faça seu pedido aqui</span>
+
+        <img src="assets/whatsapp.png" alt="WhatsApp">
+
+    </a>
+
+    <script src="script.js" defer></script>
 
 
 </body>
+
 </html>
