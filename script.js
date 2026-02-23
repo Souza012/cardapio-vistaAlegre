@@ -286,34 +286,33 @@ function renderSabores(lista) {
     lista.forEach(sabor => {
 
         container.innerHTML += `
-            <div class="card-sabor" onclick="selecionarSabor('${sabor.nome}')">
-            
+        <div class="card-sabor" onclick="selecionarSabor('${sabor.nome}')">
+
             <img src="${sabor.img}" class="img-pizza">
-            
+
             <h4>${sabor.nome}</h4>
-            
+
             <span>
             Broto: R$ ${sabor.precoBroto?.toFixed(2) ?? "--"} <br>
             Grande: R$ ${sabor.precoGrande?.toFixed(2) ?? "--"}
             </span>
-            
+
             <button 
             class="btn-ingredientes"
             onclick="event.stopPropagation(); toggleIngredientes(this)">
             Ingredientes
             </button>
-            
+
             <p class="ingredientes">
             ${sabor.descricao || "Ingredientes não informados"}
             </p>
-            
-            </div>
-            `;
+
+        </div>
+        `;
 
     });
 
 }
-
 
 function toggleIngredientes(btn) {
 
@@ -375,6 +374,32 @@ function verificarHorario() {
 
 }
 
+function mostrarMensagem(texto) {
+
+    const msg = document.createElement("div");
+    msg.className = "msg-add";
+    msg.innerText = texto;
+
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+        msg.remove();
+    }, 2000);
+
+}function mostrarMensagem(texto) {
+
+    const msg = document.createElement("div");
+    msg.className = "msg-add";
+    msg.innerText = texto;
+
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+        msg.remove();
+    }, 2000);
+
+}
+
 setInterval(verificarHorario, 1000);
 verificarHorario();
 
@@ -395,8 +420,6 @@ function atualizarPrecoPreview() {
 }
 
 // ===== BUILDER PIZZA =====
-let saboresSelecionados = [];
-
 function selecionarSabor(nome) {
 
     const tipo = document.getElementById("tipoPizza").value;
@@ -405,28 +428,32 @@ function selecionarSabor(nome) {
 
         saboresSelecionados = [nome];
 
-    } else {
+        adicionarPizza();
+        mostrarMensagem("🍕 Pizza adicionada ao carrinho");
 
-        if (saboresSelecionados.includes(nome)) {
+        return;
+    }
 
-            saboresSelecionados =
-                saboresSelecionados.filter(s => s !== nome);
+    // MEIA
+    if (!saboresSelecionados.includes(nome)) {
 
-        } else {
+        saboresSelecionados.push(nome);
 
-            if (saboresSelecionados.length >= 2) {
-                alert("Só pode escolher 2 sabores");
-                return;
-            }
+        if (saboresSelecionados.length === 1) {
 
-            saboresSelecionados.push(nome);
+            mostrarMensagem("🍕 Meia adicionada, escolha a outra");
+
+        } else if (saboresSelecionados.length === 2) {
+
+            adicionarPizza();
+            mostrarMensagem("🍕 Pizza adicionada ao carrinho");
+
         }
 
     }
 
     atualizarBuilder();
     atualizarPrecoPreview();
-
 }
 
 function calcularPrecoPizza() {
@@ -571,7 +598,7 @@ const taxasEntrega = {
     "Goiabal": 15,
     "Jardim Eloyna": 5,
     "Jardim Regina": 3,
-    "Laerte Assunnção": 9,
+    "Laerte Assunção": 9,
     "Lot. João Tamborideguy Fernandes": 7,
     "Mantiqueira": 15,
     "Maricá": 5,
