@@ -755,6 +755,14 @@ if (selectTamanho) {
 // ===== WHATSAPP =====
 function enviarPedido() {
 
+    const nomeInput = document.getElementById("nome");
+
+    if (!nomeInput.value.trim()) {
+        alert("Digite seu nome para continuar");
+        nomeInput.focus();
+        return;
+    }
+
     if (!restauranteAberto) {
         alert("Restaurante fechado");
         return;
