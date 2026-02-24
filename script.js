@@ -1,6 +1,7 @@
 // ===== HORARIO RESTAURANTE =====
 const horaAbertura = 1;
 const horaFechamento = 23;
+let categoriaAtual = "salgada";
 
 const sabores = [
 
@@ -443,6 +444,7 @@ function selecionarSabor(nome) {
 
     const tipo = document.getElementById("tipoPizza").value;
 
+    // PIZZA INTEIRA
     if (tipo === "inteira") {
 
         saboresSelecionados = [nome];
@@ -457,28 +459,34 @@ function selecionarSabor(nome) {
         return;
     }
 
-    // MEIA
+    // MEIA A MEIA
     if (!saboresSelecionados.includes(nome)) {
 
         saboresSelecionados.push(nome);
 
         if (saboresSelecionados.length === 1) {
 
-            mostrarMensagem("🍕 Meia adicionada, escolha a outra");
+            verificarPizzaDoce();
+            atualizarBuilder();
+            atualizarPrecoPreview();
 
-        } else if (saboresSelecionados.length === 2) {
+            mostrarMensagem("🍕 Meia adicionada, escolha a outra");
+            return;
+        }
+
+        if (saboresSelecionados.length === 2) {
 
             verificarPizzaDoce();
+            atualizarBuilder();
+            atualizarPrecoPreview();
 
             adicionarPizza();
             mostrarMensagem("🍕 Pizza adicionada ao carrinho");
-        }
 
+            return;
+        }
     }
 
-    atualizarBuilder();
-    atualizarPrecoPreview();
-    verificarPizzaDoce();
 }
 
 function calcularPrecoPizza() {
@@ -566,6 +574,9 @@ function adicionarPizza() {
     const tipo = document.getElementById("tipoPizza").value;
     const extraDoceEl = document.getElementById("extraDoce");
     const extraDoce = extraDoceEl ? extraDoceEl.value : "";
+    const ehDoce = saboresSelecionados.some(nome =>
+        pizzasDoces.find(p => p.nome === nome)
+    );
 
     if (tipo === "inteira" && saboresSelecionados.length !== 1) {
         alert("Escolha 1 sabor");
@@ -580,7 +591,7 @@ function adicionarPizza() {
     // PEGAR EXTRAS PRIMEIRO
     let extras = [];
 
-    if (extraDoce) {
+    if (ehDoce && extraDoce) {
         extras.push(extraDoce);
     }
 
@@ -615,13 +626,14 @@ function adicionarPizza() {
         preco: precoPizza,
         borda: borda || "",
         valorBorda: valorBorda,
-        extraDoce: extraDoce,
+        extraDoce: ehDoce ? extraDoce : "",
         obs: ""
     });
 
     saboresSelecionados = [];
 
-    document.getElementById("extraDoce").value = "";
+    const extraReset = document.getElementById("extraDoce");
+if (extraReset) extraReset.value = "";
 
     salvar();
     renderCarrinho();
