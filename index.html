@@ -40,7 +40,7 @@
     </header>
 
 
-    <h2 class="title">Conheça nosso menu!</h2>
+    <h2 class="title">Monte sua pizza 🍕!</h2>
 
     <div class="categorias-fixa">
         <div class="categorias-container">
@@ -79,11 +79,39 @@
                     <option value="meia">Meia a Meia</option>
                 </select>
 
+                <div id="extrasDoces" style="display:none; margin-top:10px;">
+
+                    <label for="extraDoce"><strong>Adicionais pizza doce :</strong></label>
+                    
+                    <select id="extraDoce">
+                    <option value="">Sem adicionais</option>
+                    <option value="Granulado">Granulado + R$6</option>
+                    <option value="Confete">Confete + R$8</option>
+                    <option value="GranuladoConfete">Granulado + Confete + R$14</option>
+                    </select>
+                    
+                    </div>
+                
+
                 <h3>Escolha os sabores</h3>
 
                 <div id="listaSabores" class="lista-sabores"></div>
 
                 <p id="pizzaPreview"></p>
+
+                <div id="extrasDoces" style="display:none; margin-top:10px;">
+                    <h3>Extras para pizza doce</h3>
+                
+                    <label>
+                        <input type="checkbox" class="extraDoce" value="Granulado">
+                        Granulado
+                    </label>
+                
+                    <label>
+                        <input type="checkbox" class="extraDoce" value="Confete">
+                        Confete
+                    </label>
+                </div>
 
             </div>
 
@@ -208,7 +236,7 @@
 
     <div class="checkout">
 
-        <input id="nome" placeholder="Seu nome" required>
+        <input id="nome" placeholder="Seu nome" autocomplete="name">
 
         <select id="tipoEntrega">
             <option value="retirada">Retirada</option>
@@ -223,11 +251,13 @@
                 <option value="" selected disabled>Selecione seu bairro</option>
 
                 <option disabled>── Mais pedidos ──</option>
-                <option>Terra Nova</option>
-                <option>Feital</option>
                 <option>Cidade Nova</option>
+                <option>Feital</option>
                 <option>Jardim Eloyna</option>
                 <option>Jardim Regina</option>
+                <option>Terra Nova</option>
+                <option>Vista Alegre</option>
+
 
                 <option disabled>────────────</option>
                 <option disabled>De A-Z</option>
@@ -285,8 +315,6 @@
         <button id="btnEnviar" onclick="enviarPedido()">
             Enviar Pedido
         </button>
-
-    </div>
 
     </div>
 

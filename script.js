@@ -202,7 +202,7 @@ const pizzasDoces = [
         descricao: "Creme de leite, creme de avelã, chocolate branco e granulado.",
         precoGrande: 48,
         precoBroto: 29,
-        img: "assets/pizzas/cremeAvela.jpeg"
+        img: "assets/pizzas/cremeAvela.png"
     },
     {
         nome: "Chocolate ao Leite c/ Chocolate Branco",
@@ -253,6 +253,12 @@ const precosBorda = {
 
 
 };
+
+const bordasDoces = [
+    "CremeAvela",
+    "ChocolateBranco",
+    "ChocolateAoLeite"
+];
 
 
 function atualizarBordas(tipo) {
@@ -311,6 +317,19 @@ function renderSabores(lista) {
         `;
 
     });
+
+}
+
+function verificarPizzaDoce() {
+
+    const box = document.getElementById("extrasDoces");
+
+    if (categoriaAtual === "doce") {
+        box.style.display = "block";
+    } else {
+        box.style.display = "none";
+        document.getElementById("extraDoce").value = "";
+    }
 
 }
 
@@ -386,7 +405,7 @@ function mostrarMensagem(texto) {
         msg.remove();
     }, 2000);
 
-}function mostrarMensagem(texto) {
+} function mostrarMensagem(texto) {
 
     const msg = document.createElement("div");
     msg.className = "msg-add";
@@ -428,6 +447,10 @@ function selecionarSabor(nome) {
 
         saboresSelecionados = [nome];
 
+        verificarPizzaDoce();
+        atualizarBuilder();
+        atualizarPrecoPreview();
+
         adicionarPizza();
         mostrarMensagem("🍕 Pizza adicionada ao carrinho");
 
@@ -445,15 +468,17 @@ function selecionarSabor(nome) {
 
         } else if (saboresSelecionados.length === 2) {
 
+            verificarPizzaDoce();
+
             adicionarPizza();
             mostrarMensagem("🍕 Pizza adicionada ao carrinho");
-
         }
 
     }
 
     atualizarBuilder();
     atualizarPrecoPreview();
+    verificarPizzaDoce();
 }
 
 function calcularPrecoPizza() {
@@ -467,6 +492,7 @@ function calcularPrecoPizza() {
     let precos = saboresSelecionados.map(nome => {
 
         let sabor = todasPizzas.find(x => x.nome === nome);
+        if (!sabor) return 0;
 
         return tamanho === "P"
             ? sabor.precoBroto
@@ -474,8 +500,17 @@ function calcularPrecoPizza() {
 
     });
 
-    return Math.max(...precos, 0);
+    let precoFinal = Math.max(...precos, 0);
+
+    const extra = document.getElementById("extraDoce")?.value;
+
+    if (extra === "Granulado") precoFinal += 6;
+    if (extra === "Confete") precoFinal += 8;
+    if (extra === "GranuladoConfete") precoFinal += 14;
+
+    return precoFinal;
 }
+
 
 function atualizarBuilder() {
 
@@ -530,6 +565,8 @@ function adicionarPizza() {
     const tamanho = document.getElementById("pizzaTamanho").value;
     const borda = document.getElementById("pizzaBorda").value;
     const tipo = document.getElementById("tipoPizza").value;
+    const extraDoceEl = document.getElementById("extraDoce");
+    const extraDoce = extraDoceEl ? extraDoceEl.value : "";
 
     if (tipo === "inteira" && saboresSelecionados.length !== 1) {
         alert("Escolha 1 sabor");
@@ -541,6 +578,13 @@ function adicionarPizza() {
         return;
     }
 
+    // PEGAR EXTRAS PRIMEIRO
+    let extras = [];
+
+    if (extraDoce) {
+        extras.push(extraDoce);
+    }
+
     let tamanhoTexto =
         tamanho === "P"
             ? "🍕 BROTO (4 pedaços)"
@@ -548,6 +592,10 @@ function adicionarPizza() {
 
     let nomePizza =
         `${tamanhoTexto} - ` + saboresSelecionados.join(" / ");
+
+    if (extras.length > 0) {
+        nomePizza += " + " + extras.join(", ");
+    }
 
     if (borda)
         nomePizza += ` + Borda ${borda}`;
@@ -568,15 +616,19 @@ function adicionarPizza() {
         preco: precoPizza,
         borda: borda || "",
         valorBorda: valorBorda,
+        extraDoce: extraDoce,
         obs: ""
     });
 
     saboresSelecionados = [];
 
+    document.getElementById("extraDoce").value = "";
+
     salvar();
     renderCarrinho();
     atualizarTotal();
     atualizarBuilder();
+    verificarPizzaDoce();
 }
 
 // ===== DADOS INICIAIS =====
@@ -611,6 +663,7 @@ const taxasEntrega = {
     "Shangrillá": 8,
     "Terra Nova": 2,
     "Triângulo": 5,
+    "Vista Alegre": 2,
     "Vitória Vale 2": 8,
     "Vitória Vale 3": 6
 };
@@ -649,8 +702,13 @@ function renderCarrinho() {
 <p>
 <strong>${item.nome}</strong><br>
 R$ ${item.preco.toFixed(2)}
+
 ${item.borda ? `<br>🧀 Borda ${item.borda} + R$ ${item.valorBorda.toFixed(2)}` : ""}
+
+${item.extraDoce ? `<br>🍫 Adicional: ${item.extraDoce}` : ""}
+
 </p>
+</div>
 
 
 
@@ -849,19 +907,40 @@ document.querySelectorAll(".categorias-fixa a")
 
             const id = link.getAttribute("href");
             const secao = document.querySelector(id);
-
             // muda sabores
             if (id === "#PizzasSalgadas") {
+
+                categoriaAtual = "salgada";
+
+                saboresSelecionados = [];
+
                 renderSabores(sabores);
                 atualizarBordas("salgada");
+
+                document.getElementById("extrasDoces").style.display = "none";
+
+                const extra = document.getElementById("extraDoce");
+                if (extra) extra.value = "";
+
+                atualizarBuilder();
+                atualizarPrecoPreview();
             }
 
             if (id === "#PizzasDoces") {
+
+                categoriaAtual = "doce";
+
+                saboresSelecionados = [];
+
                 renderSabores(pizzasDoces);
                 atualizarBordas("doce");
+
+                document.getElementById("extrasDoces").style.display = "block";
+
+                atualizarBuilder();
+                atualizarPrecoPreview();
             }
 
-            // rola até a seção
             if (secao) {
                 secao.scrollIntoView({
                     behavior: "smooth"
@@ -939,7 +1018,7 @@ document.getElementById("pagamento").addEventListener("change", function () {
 
 const balaoWhatsapp = document.querySelector(".whatsapp-msg");
 
-function mostrarBalao(){
+function mostrarBalao() {
 
     balaoWhatsapp.style.display = "block";
 
@@ -949,9 +1028,9 @@ function mostrarBalao(){
 
 }
 
-setInterval(mostrarBalao,15000);
+setInterval(mostrarBalao, 15000);
 
-setTimeout(mostrarBalao,4000);
+setTimeout(mostrarBalao, 4000);
 
 
 
