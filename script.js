@@ -504,9 +504,8 @@ function calcularPrecoPizza() {
 
     const extra = document.getElementById("extraDoce")?.value;
 
-    if (extra === "Granulado") precoFinal += 6;
-    if (extra === "Confete") precoFinal += 8;
-    if (extra === "GranuladoConfete") precoFinal += 14;
+    if (extra === "Granulado") precoFinal += 0;
+    if (extra === "Confete") precoFinal += 0;
 
     return precoFinal;
 }
