@@ -642,6 +642,20 @@ if (extraReset) extraReset.value = "";
     verificarPizzaDoce();
 }
 
+const btnSacola = document.getElementById("btnSacola");
+const sacolaModal = document.getElementById("sacolaModal");
+const fecharSacola = document.getElementById("fecharSacola");
+
+btnSacola.addEventListener("click", () => {
+    sacolaModal.style.display = "flex";
+    document.body.style.overflow = "hidden"; // trava fundo
+});
+
+fecharSacola.addEventListener("click", () => {
+    sacolaModal.style.display = "none";
+    document.body.style.overflow = "auto";
+});
+
 // ===== DADOS INICIAIS =====
 let carrinho =
     JSON.parse(localStorage.getItem("carrinho")) || [];

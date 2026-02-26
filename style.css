@@ -403,6 +403,49 @@ body {
     color:#555;
     }
 
+    .sacola-btn {
+        position: fixed;
+        bottom: 2px;
+        left: 2px;
+        background: #d3180a;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    
+    .sacola-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    .sacola-modal .checkout {
+        background: white;
+        width: 95%;
+        max-width: 500px;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 40px 0;
+    }
+    
+    .btn-voltar {
+        margin-top: 10px;
+        background: #ccc;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
 /* ===== CHECKOUT ===== */
 .checkout {
     max-width: 800px;
@@ -636,6 +679,42 @@ body {
     opacity:1;
     transform: translateX(0);
     }
+    }
+
+
+    .footer {
+        background: #111;
+        color: #fff;
+        padding: 40px 20px 50px;
+        margin-top: 50px;
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .footer h3 {
+        margin-bottom: 10px;
+    }
+    
+    .footer p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    
+    .footer-bottom {
+        border-top: 1px solid #333;
+        margin-top: 20px;
+        padding-top: 15px;
+        text-align: center;
+        font-size: 13px;
+    }
+    
+    .creditos {
+        opacity: 0.7;
     }
 
 /* ===== TABLETS / TELAS MÉDIAS ===== */
