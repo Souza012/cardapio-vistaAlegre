@@ -3,6 +3,8 @@ const horaAbertura = 18;
 const horaFechamento = 23;
 let categoriaAtual = "salgada";
 
+let saboresSelecionados = [];
+
 const sabores = [
 
     {
@@ -324,14 +326,19 @@ function renderSabores(lista) {
 function verificarPizzaDoce() {
 
     const box = document.getElementById("extrasDoces");
+    const extraSelect = document.getElementById("extraDoce");
+
+    if (!box) return;
 
     if (categoriaAtual === "doce") {
         box.style.display = "block";
     } else {
         box.style.display = "none";
-        document.getElementById("extraDoce").value = "";
-    }
 
+        if (extraSelect) {
+            extraSelect.value = "";
+        }
+    }
 }
 
 function toggleIngredientes(btn) {
