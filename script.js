@@ -1,5 +1,5 @@
 // ===== HORARIO RESTAURANTE =====
-const horaAbertura = 18;
+const horaAbertura = 1;
 const horaFechamento = 23;
 let categoriaAtual = "salgada";
 
@@ -352,19 +352,18 @@ function toggleIngredientes(btn) {
 
 }
 
-// ===== STATUS RESTAURANTE =====
-const statusRestaurante = document.getElementById("statusRestaurante");
-const Abertura = document.getElementById("Abertura");
-const btnEnviar = document.getElementById("btnEnviar");
-
-let restauranteAberto = true;
-
 function verificarHorario() {
 
     const agora = new Date();
     const hora = agora.getHours();
+    const diaSemana = agora.getDay(); // 0 = domingo, 1 = segunda...
 
-    restauranteAberto = hora >= horaAbertura && hora < horaFechamento;
+    const diasFechados = [2, 3]; // terça e quarta
+
+    const dentroDoHorario = hora >= horaAbertura && hora < horaFechamento;
+    const diaPermitido = !diasFechados.includes(diaSemana);
+
+    restauranteAberto = dentroDoHorario && diaPermitido;
 
     if (statusRestaurante) {
         statusRestaurante.innerHTML =
@@ -382,7 +381,17 @@ function verificarHorario() {
 
         let proximaHora = new Date();
 
-        if (hora >= horaFechamento) {
+        // Se for dia fechado (terça ou quarta)
+        if (!diaPermitido) {
+
+            // Avança até o próximo dia permitido
+            do {
+                proximaHora.setDate(proximaHora.getDate() + 1);
+            } while (diasFechados.includes(proximaHora.getDay()));
+
+        } 
+        // Se passou do horário
+        else if (hora >= horaFechamento) {
             proximaHora.setDate(proximaHora.getDate() + 1);
         }
 
@@ -398,7 +407,58 @@ function verificarHorario() {
     } else if (Abertura) {
         Abertura.textContent = "";
     }
+}function verificarHorario() {
 
+    const agora = new Date();
+    const hora = agora.getHours();
+    const diaSemana = agora.getDay(); // 0 = domingo, 1 = segunda...
+
+    const diasFechados = [2, 3]; // terça e quarta
+
+    const dentroDoHorario = hora >= horaAbertura && hora < horaFechamento;
+    const diaPermitido = !diasFechados.includes(diaSemana);
+
+    restauranteAberto = dentroDoHorario && diaPermitido;
+
+    if (statusRestaurante) {
+        statusRestaurante.innerHTML =
+            restauranteAberto
+                ? `<span class="aberto">🟢 Aberto</span>`
+                : `<span class="fechado">🔴 Fechado</span>`;
+    }
+
+    if (btnEnviar) {
+        btnEnviar.style.display =
+            restauranteAberto ? "block" : "none";
+    }
+
+    if (!restauranteAberto && Abertura) {
+
+        let proximaHora = new Date();
+        if (!diaPermitido) {
+            
+            do {
+                proximaHora.setDate(proximaHora.getDate() + 1);
+            } while (diasFechados.includes(proximaHora.getDay()));
+
+        } 
+        // Se passou do horário
+        else if (hora >= horaFechamento) {
+            proximaHora.setDate(proximaHora.getDate() + 1);
+        }
+
+        proximaHora.setHours(horaAbertura, 0, 0);
+
+        const diff = proximaHora - agora;
+
+        const h = Math.floor(diff / 1000 / 60 / 60);
+        const m = Math.floor((diff / 1000 / 60) % 60);
+
+        Abertura.textContent = `Abre em ${h}h ${m}m`;
+
+    } else if (Abertura) {
+        Abertura.textContent = "";
+    }
 }
 
 function mostrarMensagem(texto) {
@@ -922,7 +982,7 @@ function enviarPedido() {
 
     mensagem += `\n💰 Total R$ ${document.getElementById("total").textContent}`;
 
-    const numero = "5512992329743";
+    const numero = "5512981860808";
 
     const url =
         `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
