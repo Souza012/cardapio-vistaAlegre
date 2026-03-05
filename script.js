@@ -1,5 +1,5 @@
 // ===== HORARIO RESTAURANTE =====
-const horaAbertura = 1;
+const horaAbertura = 18;
 const horaFechamento = 23;
 let categoriaAtual = "salgada";
 
