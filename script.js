@@ -982,7 +982,7 @@ function enviarPedido() {
 
     mensagem += `\n💰 Total R$ ${document.getElementById("total").textContent}`;
 
-    const numero = "5512981860808";
+    const numero = "5512992329743";
 
     const url =
         `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
